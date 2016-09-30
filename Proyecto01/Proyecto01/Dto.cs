@@ -1,6 +1,6 @@
 ﻿namespace Proyecto01
 {
-    //-------------
+    
     public class Dto
     {
         string abecedario;
@@ -62,7 +62,7 @@
             }
         }
 
-        public string[] TipoArchivo
+        public string TipoArchivo
         {
             get
             {
@@ -72,6 +72,19 @@
             set
             {
                 tipoArchivo = value;
+            }
+        }
+
+        public string TipoAlgoritmo
+        {
+            get
+            {
+                return tipoAlgoritmo;
+            }
+
+            set
+            {
+                tipoAlgoritmo = value;
             }
         }
     }
