@@ -1,13 +1,14 @@
 ﻿namespace Proyecto01
 {
+    //-------------
     public class Dto
     {
         string abecedario;
         string tiraInicial;
         string tiraFinal;
         string clave;
-        string[] tipoAlgoritmo;
-        string[] tipoArchivo;
+        string tipoAlgoritmo;
+        string tipoArchivo;
 
         public string Abecedario
         {
