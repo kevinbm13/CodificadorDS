@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace Proyecto01
 {
-    interface AlgoritmoFactory
+    class TXT : IEscritorStrategy
     {
-        Algoritmo crearAlgoritmo();
+        public void findEscritor(Dto dto)
+        {
+            throw new NotImplementedException();
+        }
     }
-}
+}   

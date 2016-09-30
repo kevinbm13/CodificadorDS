@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Proyecto01
 {
-    class TransposicionFactory : AlgoritmoFactory
+    class TransposicionFactory : IAlgoritmoFactory
     {
         public Algoritmo crearAlgoritmo()
         {

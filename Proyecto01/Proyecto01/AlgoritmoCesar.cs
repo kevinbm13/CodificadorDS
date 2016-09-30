@@ -6,14 +6,14 @@ namespace Proyecto01
     public class AlgoritmoCesar : Algoritmo
     {
      
-       private String tiraFinal;
+        private String tiraFinal;
         private String tiraInicial;
         private String clave;
         private String abc;
-       private int digito1;
-       private  int digito2;
-       private int y = 0;
-       private StringBuilder sb = new StringBuilder();
+        private int digito1;
+        private int digito2;
+        private int y = 0;
+        private StringBuilder sb = new StringBuilder();
 
 //------------------------------------------------------------------------------------------------------------
         public override void codificar(Dto dto)

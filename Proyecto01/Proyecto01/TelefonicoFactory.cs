@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Proyecto01
 {
-    class TelefonicoFactory : AlgoritmoFactory
+    class TelefonicoFactory : IAlgoritmoFactory
     {
         public Algoritmo crearAlgoritmo()
         {

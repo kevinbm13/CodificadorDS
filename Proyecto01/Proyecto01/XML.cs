@@ -6,13 +6,11 @@ using System.Threading.Tasks;
 
 namespace Proyecto01
 {
-    class VigenereFactory : IAlgoritmoFactory
+    class XML : IEscritorStrategy
     {
-        public Algoritmo crearAlgoritmo()
+        public void findEscritor(Dto dto)
         {
-            Vigenere vigenere = new Vigenere();
-
-            return vigenere;
+            throw new NotImplementedException();
         }
     }
 }
