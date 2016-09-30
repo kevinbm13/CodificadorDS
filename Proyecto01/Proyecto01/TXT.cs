@@ -8,9 +8,17 @@ namespace Proyecto01
 {
     class TXT : IEscritorStrategy
     {
+        private String tiraFinal;
+        private String tiraInicial;
+        private String clave;
+        private String abc;
+        private String tipoAlgoritmo;
+        private String tipoArchivo;
+        private StringBuilder sb = new StringBuilder();
+
         public void findEscritor(Dto dto)
         {
-            throw new NotImplementedException();
+            
         }
     }
-}   
+}
