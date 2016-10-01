@@ -11,6 +11,18 @@
         string modo;
         string[] tipoArchivo;
 
+        public string Modo
+        {
+            get
+            {
+                return modo;
+
+            }
+            set
+            {
+                modo = value;
+            }
+        }
         public string Abecedario
         {
             get
@@ -63,7 +75,7 @@
             }
         }
 
-        public string TipoArchivo
+        public string[] TipoArchivo
         {
             get
             {
