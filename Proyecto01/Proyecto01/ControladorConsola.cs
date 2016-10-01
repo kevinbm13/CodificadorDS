@@ -127,6 +127,8 @@ namespace Proyecto01
                     Ialgoritmo = new TransposicionFactory();
                     algoritmo = Ialgoritmo.crearAlgoritmo();
                     algoritmo.codificar(dto);
+                    Console.Write("Datos del algoritmo Transposicion" + Environment.NewLine);
+                    mostrarResultado(dto);
                 }
 
                 y++;
