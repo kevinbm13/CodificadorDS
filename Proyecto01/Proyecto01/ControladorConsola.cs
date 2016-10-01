@@ -19,7 +19,7 @@ namespace Proyecto01
         {
 
             Dto dto = new Dto();
-            dto.TiraFinal = new List<string>();
+            dto.TiraFinal = new List<string>();  //Incializar...Esperando la lectura para cambiarlo e inicializar el dto por aparte
             dto.Abecedario = "abcdefghijklmnopqrstuvwxyz";
 
             //Ingresa el algoritmo a utilizar
