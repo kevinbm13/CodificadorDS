@@ -5,9 +5,9 @@
     {
         string abecedario;
         string tiraInicial;
-        string tiraFinal;
+        string[] tiraFinal;
         string clave;
-        string tipoAlgoritmo;
+        string[] tipoAlgoritmo;
         string modo;
         string[] tipoArchivo;
 
@@ -49,7 +49,7 @@
             }
         }
 
-        public string TiraFinal
+        public string[] TiraFinal
         {
             get
             {
@@ -88,7 +88,7 @@
             }
         }
 
-        public string TipoAlgoritmo
+        public string[] TipoAlgoritmo
         {
             get
             {

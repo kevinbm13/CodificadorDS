@@ -21,7 +21,7 @@ namespace Proyecto01
             tiraInicial = dto.TiraInicial;
             tiraFinal = dto.TiraFinal;
             tipoAlgoritmo = dto.TipoAlgoritmo;
-            modo = dto.modo;
+            modo = dto.Modo;
             //Path Kevin: "C:\Users\Flo\Desktop\archivo"
             //Path Juan:
             //Path Daniel:
