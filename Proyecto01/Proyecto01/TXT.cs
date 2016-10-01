@@ -9,7 +9,7 @@ namespace Proyecto01
     class TXT : IEscritorStrategy
     {
         private static int archivo = 1;
-        private String[] tiraFinal;
+        private List<String> tiraFinal; 
         private String tiraInicial;
         private String abc;
         private String[] tipoAlgoritmo;

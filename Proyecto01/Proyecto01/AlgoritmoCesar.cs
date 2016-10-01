@@ -6,13 +6,13 @@ namespace Proyecto01
     public class AlgoritmoCesar : Algoritmo
     {
      
-        private String tiraFinal;
-        private String tiraInicial;
-        private String clave;
-        private String abc;
-        private int digito1;
-        private int digito2;
-        private int y = 0;
+        private String tiraFinal;                   // Oracion Inicial
+        private String tiraInicial;                 //Resultado
+        private String clave;                        //Variables
+        private String abc;                         //Abecedario
+        private int digito1;                        //Primer digito de la clave
+        private int digito2;                        //Segundo digito de la clave
+        private int y = 0;                          //Contador para el arreglo de palabras
         private StringBuilder sb = new StringBuilder();
 
 //------------------------------------------------------------------------------------------------------------
@@ -20,13 +20,13 @@ namespace Proyecto01
         {
 
             abc = dto.Abecedario;
-            tiraInicial = dto.TiraInicial;
+            tiraInicial = dto.TiraInicial;  //Variables.Se les da los valores del dto
             clave = dto.Clave;
             charToint(clave);
 
-            char[] abecedario = abc.ToCharArray();
-            String[] oraciones = tiraInicial.Split(' ');
-//------------------------------------------------------------------------------------------------------------
+            char[] abecedario = abc.ToCharArray(); //el abecedario es convertido en un array de char
+            String[] oraciones = tiraInicial.Split(' ');// la oracion se convierte en un array de palabras
+       
 
             while (y < oraciones.Length)
             {
@@ -40,34 +40,12 @@ namespace Proyecto01
                        
                         if (oracionActual[i]==abecedario[x] && i % 2 == 0)
                         {
-                            
-                            if (x + digito1 >= abecedario.Length)
-                            {
-
-                                sb.Append(abecedario[x + digito1 -abecedario.Length]);
-                            }
-                            else
-                            {
-                               
-                                sb.Append(abecedario[(x + digito1)]);
-                            }
-                            
-                            
+                            cambiarLetraCodificar(x,abecedario,digito1);   
                         }
 
                         if (oracionActual[i] == abecedario[x] && i % 2 != 0)
                         {
-
-                           
-                            if (x + digito2 >= abecedario.Length)
-                            {
-
-                                sb.Append(abecedario[x + digito2 - abecedario.Length]);
-                            }
-                            else
-                            {
-                                sb.Append(abecedario[(x + digito2)]);
-                            }
+                            cambiarLetraCodificar(x,abecedario,digito2);
                         }
                     }    tiraFinal = sb.ToString();
                 }
@@ -77,11 +55,12 @@ namespace Proyecto01
                 sb.ToString();
 
             }
-            dto.TiraFinal = tira
-            
+
+            dto.TiraFinal.Add(tiraFinal);
 
 
         }
+
  //------------------------------------------------------------------------------------------------------------
 
         public override void decodificar(Dto dto)
@@ -108,33 +87,14 @@ namespace Proyecto01
                         if (oracionActual[i] == abecedario[x] && i % 2 == 0)
                         {
 
-                            if (x - digito1 <0)
-                            {
-
-                                sb.Append(abecedario[x - digito1 + abecedario.Length]);
-                            }
-                            else
-                            {
-
-                                sb.Append(abecedario[(x - digito1)]);
-                            }
+                            cambiarLetraDecodificar(x,abecedario,digito1);
 
 
                         }
 
                         if (oracionActual[i] == abecedario[x] && i % 2 != 0)
                         {
-
-
-                            if (x - digito2 < 0)
-                            {
-
-                                sb.Append(abecedario[x - digito2 + abecedario.Length]);
-                            }
-                            else
-                            {
-                                sb.Append(abecedario[(x - digito2)]);
-                            }
+                            cambiarLetraDecodificar(x,abecedario,digito2);
                         }
                     }
                     tiraFinal = sb.ToString();
@@ -147,17 +107,58 @@ namespace Proyecto01
 
             }
 
-             dto.TiraFinal = tiraFinal;
+            dto.TiraFinal.Add(tiraFinal);
 
         }
 
 
-        //---------------------------------------------------------------------------------------------------------------------
+      
+        
+ //---------------------------------------------------------------------------------------------------------------------
         public void charToint(String clave)
         {
+            if (clave.Length != 2)
+            {
+                Console.Write("La clave debe de ser de 2 Dígitos"+Environment.NewLine);
+            }
+            else
+            {
+                digito1 = Convert.ToInt32(clave[0].ToString());
+                digito2 = Convert.ToInt32(clave[1].ToString());
+            }
             
-            digito1 = Convert.ToInt32(clave[0].ToString());
-            digito2 = Convert.ToInt32(clave[1].ToString());
         }
+
+ //--------------------------------------------------------------------------------------------------------------
+
+        public void cambiarLetraCodificar(int posicionActual, char[]abecedario,int digito)
+        {
+            if (posicionActual + digito >= abecedario.Length)
+            {
+
+                sb.Append(abecedario[posicionActual + digito - abecedario.Length]);
+            }
+            else
+            {
+
+                sb.Append(abecedario[(posicionActual + digito)]);
+            }
+        }
+//----------------------------------------------------------------------------------------------------
+
+        public void cambiarLetraDecodificar(int posicionActual,char[]abecedario,int digito)
+        {
+            if (posicionActual - digito < 0)
+            {
+
+                sb.Append(abecedario[posicionActual - digito + abecedario.Length]);
+            }
+            else
+            {
+
+                sb.Append(abecedario[(posicionActual - digito)]);
+            }
+        }
+        
     }
 }

@@ -8,15 +8,17 @@ namespace Proyecto01
 {
     class ControladorConsola
     {
-        IAlgoritmoFactory Ialgoritmo;
-        Algoritmo algoritmo;
-        String texto;
-        String[] oraciones;
+       private IAlgoritmoFactory Ialgoritmo;
+       private Algoritmo algoritmo;
+       private String texto;
+       private String[] oraciones;
+        private int cnt = 0;
 
         public void ejecutar()
         {
             
             Dto dto = new Dto();
+            dto.TiraFinal = new List<string>();
             dto.Abecedario = "abcdefghijklmnopqrstuvwxyz";
             Console.WriteLine("Ingrese el algoritmo a utilizar");
             Console.WriteLine("Si desea utilizar mas de un algoritmo separalo por espacios");
@@ -43,7 +45,12 @@ namespace Proyecto01
                 decodificar(dto);
                 dto.Modo = "decodificar";
             }
-            Console.Write("Operación no disponible");
+           
+            if (texto != "codifcar" && texto != "decodificar")
+            {
+                Console.Write("Operación no disponible");
+            }
+            
 
             //-------------------------------------------------------------------------------------------------------------           
 
@@ -89,7 +96,9 @@ namespace Proyecto01
 
                     Ialgoritmo = new VigenereFactory();
                     algoritmo = Ialgoritmo.crearAlgoritmo();
-                    algoritmo.codificar(dto);
+                    algoritmo.decodificar(dto);
+                    Console.Write("Datos del algoritmo Vigenere" + Environment.NewLine);
+                    mostrarResultadoClave(dto);
                 }
 
                 if (oracionActual == "vigenre")
@@ -166,22 +175,24 @@ namespace Proyecto01
                 y++;
             }
 
-            Console.Write("ALGORITMO NO DISPONIBLE");
         }
 
  //-----------------------------------------------------------------------------------------------------------------------
         private void mostrarResultado(Dto dto)
         {
             Console.Write("Palabra original : {0}", dto.TiraInicial + Environment.NewLine);
-            Console.Write("Resultado : {0}", dto.TiraFinal+ Environment.NewLine);
+            Console.Write("Resultado : {0}", dto.TiraFinal[cnt] + Environment.NewLine);
+            cnt++;
             //Console.Write("Palabra original : {0}", dto.TiraInicial);
         }
 
+    
         private void mostrarResultadoClave(Dto dto)
         {
             Console.Write("Palabra original : {0}", dto.TiraInicial+Environment.NewLine);
-            Console.Write("Resultado : {0}", dto.TiraFinal+Environment.NewLine);
+            Console.Write("Resultado : {0}", dto.TiraFinal[cnt] +Environment.NewLine);
             Console.Write("Clave : {0}", dto.Clave+Environment.NewLine);
+            cnt++;
             //Console.Write("Palabra original : {0}", dto.TipoArchivo);
         }
 
