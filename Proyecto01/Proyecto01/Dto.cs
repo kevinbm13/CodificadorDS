@@ -1,11 +1,13 @@
-﻿namespace Proyecto01
+﻿using System.Collections.Generic;
+
+namespace Proyecto01
 {
     
     public class Dto
     {
         string abecedario;
         string tiraInicial;
-        string[] tiraFinal;
+        List<string> tiraFinal;
         string clave;
         string[] tipoAlgoritmo;
         string modo;
