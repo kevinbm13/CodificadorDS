@@ -11,8 +11,8 @@ namespace Proyecto01
     {
 
    //VARIABLES
-        private int y = 0;
-        private int k = 0;
+        private int y = 0; //contador para la oracionactual
+        private int k = 0; //contador para la letraActual de la clave
         private String clave;
         private String tiraFinal;
         private String tiraInicial;
