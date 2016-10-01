@@ -98,7 +98,7 @@ namespace Proyecto01
 
                     Ialgoritmo = new ClaveFactory();
                     algoritmo = Ialgoritmo.crearAlgoritmo();
-                    algoritmo.codificar(dto);
+                    algoritmo.decodificar(dto);
                 }
 
                 if (oracionActual == "vigenere")
@@ -126,7 +126,7 @@ namespace Proyecto01
 
                     Ialgoritmo = new TransposicionFactory();
                     algoritmo = Ialgoritmo.crearAlgoritmo();
-                    algoritmo.codificar(dto);
+                    algoritmo.decodificar(dto);
                     Console.Write("Datos del algoritmo Transposicion" + Environment.NewLine);
                     mostrarResultado(dto);
                 }
