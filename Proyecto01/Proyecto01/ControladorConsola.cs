@@ -23,6 +23,7 @@ namespace Proyecto01
             dto.Abecedario = "abcdefghijklmnopqrstuvwxyz";
 
             //Ingresa el algoritmo a utilizar
+            //----------------------------------------------------------------------------------------------------------
             Console.WriteLine("Ingrese el algoritmo a utilizar");
             Console.WriteLine("Si desea utilizar mas de un algoritmo separalo por espacios");
             texto = Console.ReadLine();
@@ -41,10 +42,16 @@ namespace Proyecto01
             //------------------------------------------------------------------------------------------------------------
             Console.WriteLine("Ingrese operación a realizar");
             texto = Console.ReadLine();
+            Console.WriteLine(texto);
+            if(texto != "codificar" && texto != "decodificar")
+            {
+                Console.Write("Modo no disponible");
+            }
 
             if (texto == "codificar")
             {
                 dto.Modo = "codificar";
+               
                 codificar(dto);
 
             }
@@ -56,10 +63,6 @@ namespace Proyecto01
 
             }
 
-            if (texto != "codificar" || texto != "decodificar")
-            {
-                Console.Write("Operación no disponible");
-            }
 
 
             //-------------------------------------------------------------------------------------------------------------           
@@ -126,10 +129,6 @@ namespace Proyecto01
                     algoritmo.codificar(dto);
                 }
 
-                else
-                {
-                    Console.Write("what");
-                }
                 y++;
 
 
@@ -173,6 +172,16 @@ namespace Proyecto01
 
                 }
 
+                if (oracionActual == "transposicion")
+                {
+
+                    Ialgoritmo = new TransposicionFactory();
+                    algoritmo = Ialgoritmo.crearAlgoritmo();
+                    algoritmo.codificar(dto);
+                    Console.Write("Datos del algoritmo Transposicion" + Environment.NewLine);
+                    mostrarResultado(dto);
+                }
+
                 if (oracionActual == "telefonico")
                 {
 
@@ -180,13 +189,8 @@ namespace Proyecto01
                     algoritmo = Ialgoritmo.crearAlgoritmo();
                     algoritmo.codificar(dto);
                 }
-                if (oracionActual == "transposicion")
-                {
+                
 
-                    Ialgoritmo = new TransposicionFactory();
-                    algoritmo = Ialgoritmo.crearAlgoritmo();
-                    algoritmo.codificar(dto);
-                }
                 y++;
             }
 
@@ -199,7 +203,7 @@ namespace Proyecto01
             Console.Write("Fecha de Solicitud : {0}", d + Environment.NewLine);
             Console.Write("Modo : {0}", dto.Modo + Environment.NewLine);
             Console.Write("Palabra original : {0}", dto.TiraInicial + Environment.NewLine);
-            Console.Write("Resultado : {0}", dto.TiraFinal[cnt] + Environment.NewLine);
+            Console.Write("Resultado : {0}", dto.TiraFinal[cnt] + Environment.NewLine+Environment.NewLine);
 
             cnt++;
             //Console.Write("Palabra original : {0}", dto.TiraInicial);

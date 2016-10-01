@@ -16,8 +16,8 @@ namespace Proyecto01
                 tiraSalida += dto.TiraInicial[x];
             }
             
-            Console.WriteLine(tiraSalida);
-           // return tiraSalida;
+           
+            dto.TiraFinal.Add(tiraSalida);
         }
 
         public override void decodificar(Dto dto)
@@ -29,9 +29,9 @@ namespace Proyecto01
 
             }
 
-            Console.WriteLine(tiraSalida);
-            //return tiraSalida;
+            dto.TiraFinal.Add(tiraSalida);
             
+
         }
     }
 }
