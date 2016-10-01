@@ -51,7 +51,7 @@ namespace Proyecto01
             }
         }
 
-        public string[] TiraFinal
+        public List<string> TiraFinal
         {
             get
             {
