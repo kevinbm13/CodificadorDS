@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="AlgoritmoCesar.cs" />
     <Compile Include="AlgoritmoClave.cs" />
+    <Compile Include="ControladorConsola.cs" />
     <Compile Include="Excel.cs" />
     <Compile Include="IAlgoritmoFactory.cs" />
     <Compile Include="Algoritmo.cs" />

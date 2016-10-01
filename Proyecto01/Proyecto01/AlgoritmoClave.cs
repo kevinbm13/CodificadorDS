@@ -77,7 +77,7 @@ namespace Proyecto01
             
             }
             dto.TiraFinal = tiraFinal;
-            Console.Write(tiraFinal);
+            
         }
 //-------------------------------------------------------------------------------------------------------------------
 
@@ -136,7 +136,7 @@ namespace Proyecto01
                 y++;
 
             }
-            Console.Write(tiraFinal);
+             dto.TiraFinal = tiraFinal;
         }
     }
 }

@@ -10,13 +10,8 @@ namespace Proyecto01
     {
         static void Main(string[] args)
         {
-            Dto dto = new Dto();
-            dto.Abecedario = "abcdefghijklmnopqrstuvwxyz";
-            dto.TiraInicial = "vdthc ruqjtdodfd euksvriucikd fh fdvru bbidnvml jhpuan ";
-            dto.Clave = "23";
-            Algoritmo alg = new AlgoritmoCesar(); 
-       
-            alg.decodificar(dto);
+            ControladorConsola c = new ControladorConsola();
+            c.ejecutar();
             
         }
     }

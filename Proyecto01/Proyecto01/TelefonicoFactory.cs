@@ -10,9 +10,10 @@ namespace Proyecto01
     {
         public Algoritmo crearAlgoritmo()
         {
-            Telefonico telefonico = new Telefonico();
+            //   Algoritmo telefonico = new Telefonico();
 
-            return telefonico;
+            // return telefonico;
+            return null;
         }
     }
 }

@@ -77,8 +77,8 @@ namespace Proyecto01
                 sb.ToString();
 
             }
-
-            Console.Write(tiraFinal);
+            dto.TiraFinal = tiraFinal;
+            
 
 
         }
@@ -147,8 +147,7 @@ namespace Proyecto01
 
             }
 
-            Console.Write(tiraFinal);
-
+             dto.TiraFinal = tiraFinal;
 
         }
 
