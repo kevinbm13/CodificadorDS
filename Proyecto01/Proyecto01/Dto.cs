@@ -7,7 +7,8 @@
         string tiraInicial;
         string tiraFinal;
         string clave;
-        string[] tipoAlgoritmo;
+        string tipoAlgoritmo;
+        string modo;
         string[] tipoArchivo;
 
         public string Abecedario
