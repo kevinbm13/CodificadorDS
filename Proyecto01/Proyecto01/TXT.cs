@@ -8,22 +8,39 @@ namespace Proyecto01
 {
     class TXT : IEscritorStrategy
     {
-        private String tiraFinal;
+        private static int archivo = 1;
+        private String[] tiraFinal;
         private String tiraInicial;
-        private String clave;
         private String abc;
-        private String tipoAlgoritmo;
+        private String[] tipoAlgoritmo;
         private String modo;
-        private String tiraEscribir;
 
         public void findEscritor(Dto dto)
         {
-            //Path Kevin:
+            abc = dto.Abecedario;
+            tiraInicial = dto.TiraInicial;
+            tiraFinal = dto.TiraFinal;
+            tipoAlgoritmo = dto.TipoAlgoritmo;
+            modo = dto.Modo;
+            //Path Kevin: "C:\Users\Flo\Desktop\archivo"
             //Path Juan:
             //Path Daniel:
-            System.IO.StreamWriter file = new System.IO.StreamWriter(@"C:C:\Users\Flo\Desktop\WriteLines2.txt");
-            tiraEscribir = "Entrada: " + tiraInicial + "\nSalida: " + tiraFinal + "\nAbecedario: " + abc + "\nAlgoritmo: " + tipoAlgoritmo;
-            System.IO.File.WriteAllText(@"C:\Users\Public\TestFolder\WriteText.txt", tiraEscribir);
+            String ruta = @"C:\Users\Flo\Desktop\archivo";
+            ruta = ruta + archivo + ".txt";
+            System.IO.StreamWriter file = new System.IO.StreamWriter(ruta);
+            //tiraEscribir = "Entrada: " + tiraInicial + "\nSalida: " + tiraFinal + "\nAbecedario: " + abc + "\nAlgoritmo: " + tipoAlgoritmo;
+
+
+            file.WriteLine("Entrada: " + tiraInicial);
+            file.WriteLine("Abecedario: " + abc);
+            foreach (String algoritmo in tipoAlgoritmo)
+            {
+                file.WriteLine("");
+                file.WriteLine("Algoritmo: " + tipoAlgoritmo);
+                file.WriteLine("Modo: " + modo);
+                file.WriteLine("Salida: " + tiraFinal);
+            }
+            archivo++;
         }
     }
 }

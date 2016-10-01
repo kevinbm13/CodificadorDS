@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Collections.Generic;
 
 namespace Proyecto01
 {
@@ -9,11 +9,22 @@ namespace Proyecto01
         string tiraInicial;
         List<string> tiraFinal;
         string clave;
-        string modo;
         string[] tipoAlgoritmo;
+        string modo;
         string[] tipoArchivo;
-       
 
+        public string Modo
+        {
+            get
+            {
+                return modo;
+
+            }
+            set
+            {
+                modo = value;
+            }
+        }
         public string Abecedario
         {
             get
@@ -40,7 +51,7 @@ namespace Proyecto01
             }
         }
 
-        public string[] TiraFinal
+        public List<string> TiraFinal
         {
             get
             {
@@ -89,19 +100,6 @@ namespace Proyecto01
             set
             {
                 tipoAlgoritmo = value;
-            }
-        }
-
-        public string Modo
-        {
-            get
-            {
-                return modo;
-            }
-
-            set
-            {
-                modo = value;
             }
         }
     }
