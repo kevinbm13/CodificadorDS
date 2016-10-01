@@ -206,7 +206,7 @@ namespace Proyecto01
         }
 
 
-        //------------------------------------------------------------------------------------------------
+        
         public void oracionCorrecta(Dto dto)
         {
             String[] oraciones = dto.TiraInicial.Split(' ');
@@ -226,6 +226,7 @@ namespace Proyecto01
                     }
 
                 }
+                y++;
             }
         }
     }

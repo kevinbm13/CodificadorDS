@@ -64,10 +64,6 @@ namespace Proyecto01
                             k++;
                         }
                        
-
-                    
-                        
-
                     
                    
                 }
