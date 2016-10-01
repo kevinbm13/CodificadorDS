@@ -8,7 +8,7 @@ namespace Proyecto01
      
         private String tiraFinal;                   // Oracion Inicial
         private String tiraInicial;                 //Resultado
-        private String clave;                        //Variables
+        private String clave;                       //Clave
         private String abc;                         //Abecedario
         private int digito1;                        //Primer digito de la clave
         private int digito2;                        //Segundo digito de la clave
@@ -47,6 +47,8 @@ namespace Proyecto01
                         {
                             cambiarLetraCodificar(x,abecedario,digito2);
                         }
+
+
                     }    tiraFinal = sb.ToString();
                 }
 
@@ -120,6 +122,7 @@ namespace Proyecto01
             if (clave.Length != 2)
             {
                 Console.Write("La clave debe de ser de 2 Dígitos"+Environment.NewLine);
+                Environment.Exit(0);
             }
             else
             {
