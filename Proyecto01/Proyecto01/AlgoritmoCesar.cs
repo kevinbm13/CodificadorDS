@@ -77,7 +77,7 @@ namespace Proyecto01
                 sb.ToString();
 
             }
-            dto.TiraFinal = tiraFinal;
+            dto.TiraFinal = tira
             
 
 

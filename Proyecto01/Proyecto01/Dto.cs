@@ -1,14 +1,18 @@
-﻿namespace Proyecto01
+﻿using System;
+
+namespace Proyecto01
 {
     
     public class Dto
     {
         string abecedario;
         string tiraInicial;
-        string tiraFinal;
+        List<string> tiraFinal;
         string clave;
+        string modo;
         string[] tipoAlgoritmo;
         string[] tipoArchivo;
+       
 
         public string Abecedario
         {
@@ -36,7 +40,7 @@
             }
         }
 
-        public string TiraFinal
+        public string[] TiraFinal
         {
             get
             {
@@ -85,6 +89,19 @@
             set
             {
                 tipoAlgoritmo = value;
+            }
+        }
+
+        public string Modo
+        {
+            get
+            {
+                return modo;
+            }
+
+            set
+            {
+                modo = value;
             }
         }
     }

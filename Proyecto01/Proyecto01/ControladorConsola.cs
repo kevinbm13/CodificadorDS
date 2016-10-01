@@ -15,6 +15,7 @@ namespace Proyecto01
 
         public void ejecutar()
         {
+            
             Dto dto = new Dto();
             dto.Abecedario = "abcdefghijklmnopqrstuvwxyz";
             Console.WriteLine("Ingrese el algoritmo a utilizar");
@@ -34,11 +35,13 @@ namespace Proyecto01
             if (texto == "codificar")
             {
                 codificar(dto);
+                dto.Modo = "codificar";
             }
 
             if (texto == "decodificar")
             {
                 decodificar(dto);
+                dto.Modo = "decodificar";
             }
             Console.Write("Operación no disponible");
 
