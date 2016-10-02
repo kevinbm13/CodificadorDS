@@ -27,15 +27,17 @@ namespace Proyecto01
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+            String p = null;
             
             foreach (String itemChecked in Algoritmos.CheckedItems)
             {
+                
                
                 if (itemChecked.ToString() == "Vigenere")
                 {
                     claveVigenere.Visible = true;
                     VigenereLabel.Visible = true;
-
+                    
 
                 }
 
@@ -48,12 +50,12 @@ namespace Proyecto01
                 }
 
 
-
-                cgui.obtenerAlgoritmos(itemChecked.ToString());
-
+                 p = itemChecked.ToString()+" ";
+                
+                
 
             }
-          
+            cgui.obtenerAlgoritmos(p);
 
         }
 

@@ -12,8 +12,8 @@ namespace Proyecto01
         static void Main(string[] args)
         {
 
-            ControladorConsola c = new ControladorConsola();
-            c.ejecutar();
+            Application.EnableVisualStyles();
+            Application.Run(new Proyecto());
         }
     }
 }

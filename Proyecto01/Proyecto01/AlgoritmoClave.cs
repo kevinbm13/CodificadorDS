@@ -50,7 +50,7 @@ namespace Proyecto01
                   
                         int index2 = Array.IndexOf(abecedario, clave[k]);// la posicion de la letra actual de la clave en abecedario
                    
-                    if ((index + index2) >= abecedario.Length && k < clave.Length)
+                    if ((index + index2) >= abecedario.Length-1 && k < clave.Length)
                         {
                             sb.Append(abecedario[(index + index2 - abecedario.Length)+1]);
                             tiraFinal = sb.ToString();

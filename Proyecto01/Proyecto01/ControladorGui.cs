@@ -15,9 +15,11 @@ namespace Proyecto01
         private String[] algoritmos;
         int cnt = 0;
         String algoritmoActivo;
+        String texto;
 
         public ControladorGui()
         {
+            texto = null;
             dto = new Dto();
             dto.TiraFinal = new List<string>();
             dto.Abecedario = "abcdefghijklmnopqrstuvwxyz";
@@ -27,9 +29,12 @@ namespace Proyecto01
 
         public void obtenerAlgoritmos(String objeto)
         {
-            String texto=objeto.ToString(); 
-            algoritmos = texto.Split();
+
+            texto += objeto;
+            algoritmos = texto.Split(' ');
             dto.TipoAlgoritmo = algoritmos;
+            
+           
            
         }
  //------------------------------------------------------------------------------------
@@ -51,8 +56,10 @@ namespace Proyecto01
 //------------------------------------------------------------------------------------------
         public void ejecutar(String algoritmoActual)
         {
-          
+
             algoritmoActivo = algoritmoActual;
+          
+          
             
            
             if (dto.Modo == "Codificar")
@@ -69,10 +76,7 @@ namespace Proyecto01
 //---------------------------------------------------------------------------------
         public void decodificar(Dto dto)
         {
-            int y = 0;
-
-            while (y < dto.TipoAlgoritmo.Length)
-            {
+           
 
                 if (algoritmoActivo == "Clave")
                 {
@@ -112,10 +116,7 @@ namespace Proyecto01
                     mostrarResultado(dto);
                 }
 
-                y++;
-
-
-            }
+             
 
 
         }
@@ -127,14 +128,11 @@ namespace Proyecto01
 
            
 
-            int y = 0;
-            
-            while (y < dto.TipoAlgoritmo.Length)
-            {
-                
-                
+           
+
                 if (algoritmoActivo == "Clave")
                 {
+                   
                     oracionCorrecta(dto.TiraInicial);
                     oracionCorrecta(dto.Clave);
                     Ialgoritmo = new ClaveFactory();
@@ -175,8 +173,7 @@ namespace Proyecto01
                 }
 
 
-                y++;
-            }
+             
 
         }
  //--------------------------------------------------------------------------------
@@ -214,6 +211,7 @@ namespace Proyecto01
         {
             if (dto.Clave.Length != 2)
             {
+                Console.Write(dto.Clave);
                 crearMensajedeErrorClave();
             }
         }
@@ -221,8 +219,11 @@ namespace Proyecto01
         //Cambiar para mostrar en pantalla
         public void mostrarResultado(Dto dto)
         {
-            
-            
+            foreach (String f in dto.TipoAlgoritmo)
+            {
+                Console.Write(f);
+            }
+
             DateTime d = DateTime.Now;
             String algoritmo = "Resultado :" + algoritmoActivo+Environment.NewLine;
             String fecha="Fecha de Solicitud :"+d+Environment.NewLine;
