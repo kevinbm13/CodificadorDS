@@ -14,51 +14,79 @@ namespace Proyecto01
         private String[] oraciones;
         private int cnt = 0;
         private int y = 0;
+        private Dto dto;
 
-        public void ejecutar()
+        public ControladorConsola()
         {
-
-            Dto dto = new Dto();
+            dto = new Dto();
             dto.TiraFinal = new List<string>();  //Incializar...Esperando la lectura para cambiarlo e inicializar el dto por aparte
             dto.Abecedario = "abcdefghijklmnopqrstuvwxyz";
+        }
 
-            //Ingresa el algoritmo a utilizar
-            //----------------------------------------------------------------------------------------------------------
+        public void obtenerAlgoritmos()
+        {
             Console.WriteLine("Ingrese el algoritmo a utilizar");
             Console.WriteLine("Si desea utilizar mas de un algoritmo separalo por espacios");
             texto = Console.ReadLine();
             oraciones = texto.Split(' ');
             dto.TipoAlgoritmo = oraciones;
+        }
 
-            //usuario ingresa la palabra
-            //------------------------------------------------------------------------------------------------------------
+        public void obtenerOracion()
+        {
             Console.WriteLine("Ingrese oración a utilizar");
             texto = Console.ReadLine();
             dto.TiraInicial = texto;
-            oracionCorrecta(dto);
+            oracionCorrecta(dto.TiraInicial);
+        }
+
+        public void obtenerModo()
+        {
+            Console.WriteLine("Ingrese operación a realizar");
+            texto = Console.ReadLine();
+            dto.Modo = texto;
+        }
+
+        public void obtenerClave()
+        {
+            Console.WriteLine("Ingrese la clave");
+            texto = Console.ReadLine();
+            dto.Clave = texto;
+        }
+
+        public void ejecutar()
+        {
+
+
+
+            //Ingresa el algoritmo a utilizar
+            //----------------------------------------------------------------------------------------------------------
+            obtenerAlgoritmos();
+
+
+            //usuario ingresa la palabra
+            //------------------------------------------------------------------------------------------------------------
+            obtenerOracion();
 
 
             //Usuario elije la operacion
             //------------------------------------------------------------------------------------------------------------
-            Console.WriteLine("Ingrese operación a realizar");
-            texto = Console.ReadLine();
-            Console.WriteLine(texto);
-            if(texto != "codificar" && texto != "decodificar")
+            obtenerModo();
+           
+            if(dto.Modo != "codificar" && dto.Modo != "decodificar")
             {
                 Console.Write("Modo no disponible");
             }
 
-            if (texto == "codificar")
+            if (dto.Modo == "codificar")
             {
-                dto.Modo = "codificar";
                
                 codificar(dto);
 
             }
 
-            if (texto == "decodificar")
+            if (dto.Modo == "decodificar")
             {
-                dto.Modo = "decodificar";
                 decodificar(dto);
 
             }
@@ -92,9 +120,8 @@ namespace Proyecto01
 
                 if (oracionActual == "clave")
                 {
-                    Console.WriteLine("Ingrese la clave");
-                    texto = Console.ReadLine();
-                    dto.Clave = texto;
+                    obtenerClave();
+                    oracionCorrecta(dto.Clave);
 
                     Ialgoritmo = new ClaveFactory();
                     algoritmo = Ialgoritmo.crearAlgoritmo();
@@ -103,10 +130,8 @@ namespace Proyecto01
 
                 if (oracionActual == "vigenere")
                 {
-                    Console.WriteLine("Ingrese la clave");
-                    texto = Console.ReadLine();
-                    dto.Clave = texto;
-
+                    obtenerClave();
+                    
                     Ialgoritmo = new VigenereFactory();
                     algoritmo = Ialgoritmo.crearAlgoritmo();
                     algoritmo.decodificar(dto);
@@ -151,9 +176,8 @@ namespace Proyecto01
 
                 if (oracionActual == "clave")
                 {
-                    Console.WriteLine("Ingrese la clave para el algoritmo de Clave");
-                    texto = Console.ReadLine();
-                    dto.Clave = texto;
+                    obtenerClave();
+                    oracionCorrecta(dto.Clave);
                     Ialgoritmo = new ClaveFactory();
                     algoritmo = Ialgoritmo.crearAlgoritmo();
                     algoritmo.codificar(dto);
@@ -163,9 +187,7 @@ namespace Proyecto01
 
                 if (oracionActual == "vigenere")
                 {
-                    Console.WriteLine("Ingrese la clave para el algoritmo Vigenere");
-                    texto = Console.ReadLine();
-                    dto.Clave = texto;
+                    obtenerClave();
                     Ialgoritmo = new VigenereFactory();
                     algoritmo = Ialgoritmo.crearAlgoritmo();
                     algoritmo.codificar(dto);
@@ -208,15 +230,22 @@ namespace Proyecto01
             Console.Write("Resultado : {0}", dto.TiraFinal[cnt] + Environment.NewLine+Environment.NewLine);
 
             cnt++;
-            //Console.Write("Palabra original : {0}", dto.TiraInicial);
+            
+        }
+//------------------------------------------------------------------------------------
+        public void crearMensajedeErrorPalabra()
+        {
+            Console.Write("Caracter invalido");
+            Environment.Exit(0);
         }
 
-
-        //-----------------------------------------------------------------------------------------------------------
-        public void oracionCorrecta(Dto dto)
+ //-----------------------------------------------------------------------------------------------------------
+        public void oracionCorrecta(String oracion)
         {
-            String[] oraciones = dto.TiraInicial.Split(' ');
+            int y = 0;
+            String[] oraciones = oracion.Split(' ');
             char[] abc = dto.Abecedario.ToCharArray();
+
             while (y < oraciones.Length)
             {
                 String oracionActual = oraciones[y];
@@ -225,11 +254,11 @@ namespace Proyecto01
                 for (int i = 0; i < oracionActual.Length; i++)
                 {
 
-                    if (dto.Abecedario.Contains(oracionActual[i])==false)
+                    if (dto.Abecedario.Contains(oracionActual[i]) == false)
                     {
-                        Console.Write("Caracter inválido");
-                        Environment.Exit(0);
+                        crearMensajedeErrorPalabra();
                     }
+
 
                 }
                 y++;

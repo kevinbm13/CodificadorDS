@@ -98,7 +98,7 @@ namespace Proyecto01
 
                 if (itemChecked.ToString() == "Clave")
                 {
-                    Console.Write(ClaveClave.Text);
+                    
                     cgui.obtenerClave(ClaveClave.Text);
                     
                 }
