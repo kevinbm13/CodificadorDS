@@ -10,17 +10,29 @@ using System.Windows.Forms;
 
 namespace Proyecto01
 {
-   
-    public partial class Proyecto : Form
+    public partial class Form1 : Form
     {
-        Dto dto = new Dto();
-        public Proyecto()
+        public Form1()
         {
             InitializeComponent();
-          
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkedListBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
@@ -30,42 +42,9 @@ namespace Proyecto01
 
         }
 
-        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            foreach (object itemChecked in Algoritmo.CheckedItems)
-            {
-                String texto = itemChecked.ToString() + " ";
-                String[] oraciones = texto.Split(' ');//En el controlador??
-                dto.TipoAlgoritmo = oraciones;
-            }
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void label4_Click(object sender, EventArgs e)
         {
 
         }
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-        
-
-        
-
-      
-
-       
-        
-
-       
-
-   
-
-       
     }
 }
