@@ -15,22 +15,19 @@ namespace Proyecto01
         private String[] tipoAlgoritmo;
         private String modo;
 
-        public void findEscritor(Dto dto)
+        public void escribirArchivo(Dto dto)
         {
             abc = dto.Abecedario;
             tiraInicial = dto.TiraInicial;
             tiraFinal = dto.TiraFinal;
             tipoAlgoritmo = dto.TipoAlgoritmo;
             modo = dto.Modo;
-            //Path Kevin: "C:\Users\Flo\Desktop\archivo"
-            //Path Juan:
-            //Path Daniel:
-            String ruta = @"C:\Users\Flo\Desktop\archivo";
+
+            String ruta = AppDomain.CurrentDomain.BaseDirectory + "/" + "archivoTXT";
             ruta = ruta + archivo + ".txt";
             System.IO.StreamWriter file = new System.IO.StreamWriter(ruta);
-            //tiraEscribir = "Entrada: " + tiraInicial + "\nSalida: " + tiraFinal + "\nAbecedario: " + abc + "\nAlgoritmo: " + tipoAlgoritmo;
 
-
+            int indice = 0;
             file.WriteLine("Entrada: " + tiraInicial);
             file.WriteLine("Abecedario: " + abc);
             foreach (String algoritmo in tipoAlgoritmo)
@@ -38,7 +35,8 @@ namespace Proyecto01
                 file.WriteLine("");
                 file.WriteLine("Algoritmo: " + tipoAlgoritmo);
                 file.WriteLine("Modo: " + modo);
-                file.WriteLine("Salida: " + tiraFinal);
+                file.WriteLine("Salida: " + tiraFinal[indice]);
+                indice++;
             }
             archivo++;
         }

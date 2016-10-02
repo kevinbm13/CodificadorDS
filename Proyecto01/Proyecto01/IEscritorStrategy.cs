@@ -8,6 +8,6 @@ namespace Proyecto01
 {
     interface IEscritorStrategy
     {
-        void findEscritor(Dto dto);
+        void escribirArchivo(Dto dto);
     }
 }
