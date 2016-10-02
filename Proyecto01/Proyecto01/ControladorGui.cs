@@ -16,13 +16,14 @@ namespace Proyecto01
         int cnt = 0;
         String algoritmoActivo;
         String texto;
+        String[] oraciones;
 
         public ControladorGui()
         {
             texto = null;
             dto = new Dto();
             dto.TiraFinal = new List<string>();
-            dto.Abecedario = "abcdefghijklmnopqrstuvwxyz";
+
             dto.Clave = null;
         }
 //-------------------------------------------------------------------------------
@@ -51,14 +52,25 @@ namespace Proyecto01
 //---------------------------------------------------------------------------------------
         public void obtenerOracion(String tiraInicial)
         {
-            dto.TiraInicial = tiraInicial;
+          
+                dto.TiraInicial = tiraInicial;
+    
+        }
+ //-----------------------------------------------------------
+
+          public void estaVacio(String oracion)
+        {
+            if (oracion == null)
+            {
+                Console.Write("f");
+            }
         }
 //------------------------------------------------------------------------------------------
         public void ejecutar(String algoritmoActual)
         {
 
             algoritmoActivo = algoritmoActual;
-          
+            incializarAbecedario();
           
             
            
@@ -156,9 +168,11 @@ namespace Proyecto01
 
                 if (algoritmoActivo == "Transposición")
                 {
-                    oracionCorrecta(dto.TiraInicial);
+               
+                oracionCorrecta(dto.TiraInicial);
                     Ialgoritmo = new TransposicionFactory();
                     algoritmo = Ialgoritmo.crearAlgoritmo();
+                 
                     algoritmo.codificar(dto);
                     mostrarResultado(dto);
                 }
@@ -180,8 +194,12 @@ namespace Proyecto01
         public void oracionCorrecta(String oracion)
         {
             int y = 0;
-            String[] oraciones = oracion.Split(' ');
-            char[] abc = dto.Abecedario.ToCharArray();
+           
+                oraciones = oracion.Split(' ');
+                char[] abc = dto.Abecedario.ToCharArray();
+            
+          
+            
             
             while (y < oraciones.Length)
             {
@@ -257,7 +275,13 @@ namespace Proyecto01
             MessageBox.Show("Clave posee mas de 2 dígitos");
             Environment.Exit(0);
         }
-
+        public void incializarAbecedario()
+        {
+            string text = System.IO.File.ReadAllText("C:\\Users\\gollo\\Desktop\\abecedario.txt");
+            Console.Write(text);
+            dto.Abecedario = text;
+        }
+        
 
 
     }
