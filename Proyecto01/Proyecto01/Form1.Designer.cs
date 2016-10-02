@@ -1,6 +1,6 @@
 ﻿namespace Proyecto01
 {
-    partial class Form1
+    partial class Proyecto
     {
         /// <summary>
         /// Required designer variable.
@@ -28,55 +28,60 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
-            this.checkedListBox2 = new System.Windows.Forms.CheckedListBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.Algoritmos = new System.Windows.Forms.CheckedListBox();
+            this.Archivos = new System.Windows.Forms.CheckedListBox();
+            this.Modo = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.oracion = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.Boton = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
+            this.VigenereLabel = new System.Windows.Forms.Label();
+            this.claveVigenere = new System.Windows.Forms.TextBox();
+            this.ClaveClave = new System.Windows.Forms.TextBox();
+            this.ClaveLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // checkedListBox1
+            // Algoritmos
             // 
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Items.AddRange(new object[] {
+            this.Algoritmos.CheckOnClick = true;
+            this.Algoritmos.FormattingEnabled = true;
+            this.Algoritmos.Items.AddRange(new object[] {
             "Clave",
             "Vigenere",
             "Transposición",
             "Telefónico"});
-            this.checkedListBox1.Location = new System.Drawing.Point(12, 175);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(96, 64);
-            this.checkedListBox1.TabIndex = 0;
-            this.checkedListBox1.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
+            this.Algoritmos.Location = new System.Drawing.Point(12, 175);
+            this.Algoritmos.Name = "Algoritmos";
+            this.Algoritmos.Size = new System.Drawing.Size(96, 64);
+            this.Algoritmos.TabIndex = 0;
+            this.Algoritmos.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
             // 
-            // checkedListBox2
+            // Archivos
             // 
-            this.checkedListBox2.FormattingEnabled = true;
-            this.checkedListBox2.Items.AddRange(new object[] {
+            this.Archivos.FormattingEnabled = true;
+            this.Archivos.Items.AddRange(new object[] {
             "XML",
             "TXT",
             "EXCEL"});
-            this.checkedListBox2.Location = new System.Drawing.Point(135, 175);
-            this.checkedListBox2.Name = "checkedListBox2";
-            this.checkedListBox2.Size = new System.Drawing.Size(96, 64);
-            this.checkedListBox2.TabIndex = 1;
-            this.checkedListBox2.SelectedIndexChanged += new System.EventHandler(this.checkedListBox2_SelectedIndexChanged);
+            this.Archivos.Location = new System.Drawing.Point(135, 175);
+            this.Archivos.Name = "Archivos";
+            this.Archivos.Size = new System.Drawing.Size(96, 64);
+            this.Archivos.TabIndex = 1;
+            this.Archivos.SelectedIndexChanged += new System.EventHandler(this.checkedListBox2_SelectedIndexChanged);
             // 
-            // comboBox1
+            // Modo
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.Modo.FormattingEnabled = true;
+            this.Modo.Items.AddRange(new object[] {
             "Codificar",
             "Decodificar"});
-            this.comboBox1.Location = new System.Drawing.Point(237, 196);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(96, 21);
-            this.comboBox1.TabIndex = 2;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.Modo.Location = new System.Drawing.Point(237, 196);
+            this.Modo.Name = "Modo";
+            this.Modo.Size = new System.Drawing.Size(96, 21);
+            this.Modo.TabIndex = 2;
+            this.Modo.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -98,12 +103,13 @@
             this.label2.Text = "Archivo";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
-            // textBox1
+            // oracion
             // 
-            this.textBox1.Location = new System.Drawing.Point(113, 82);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(209, 20);
-            this.textBox1.TabIndex = 5;
+            this.oracion.Location = new System.Drawing.Point(113, 82);
+            this.oracion.Name = "oracion";
+            this.oracion.Size = new System.Drawing.Size(209, 20);
+            this.oracion.TabIndex = 5;
+            this.oracion.TextChanged += new System.EventHandler(this.oracion_TextChanged);
             // 
             // label3
             // 
@@ -114,14 +120,15 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "Ingresar Oración";
             // 
-            // button1
+            // Boton
             // 
-            this.button1.Location = new System.Drawing.Point(138, 266);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Ejecutar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.Boton.Location = new System.Drawing.Point(258, 282);
+            this.Boton.Name = "Boton";
+            this.Boton.Size = new System.Drawing.Size(75, 23);
+            this.Boton.TabIndex = 7;
+            this.Boton.Text = "Ejecutar";
+            this.Boton.UseVisualStyleBackColor = true;
+            this.Boton.Click += new System.EventHandler(this.Boton_Click);
             // 
             // label4
             // 
@@ -134,22 +141,63 @@
             this.label4.Text = "Sistema de Codificación/Decodificación";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
-            // Form1
+            // VigenereLabel
+            // 
+            this.VigenereLabel.AutoSize = true;
+            this.VigenereLabel.Location = new System.Drawing.Point(15, 269);
+            this.VigenereLabel.Name = "VigenereLabel";
+            this.VigenereLabel.Size = new System.Drawing.Size(79, 13);
+            this.VigenereLabel.TabIndex = 9;
+            this.VigenereLabel.Text = "Clave Vigenere";
+            this.VigenereLabel.Visible = false;
+            // 
+            // claveVigenere
+            // 
+            this.claveVigenere.Location = new System.Drawing.Point(8, 285);
+            this.claveVigenere.Name = "claveVigenere";
+            this.claveVigenere.Size = new System.Drawing.Size(100, 20);
+            this.claveVigenere.TabIndex = 10;
+            this.claveVigenere.Visible = false;
+            // 
+            // ClaveClave
+            // 
+            this.ClaveClave.Location = new System.Drawing.Point(131, 285);
+            this.ClaveClave.Name = "ClaveClave";
+            this.ClaveClave.Size = new System.Drawing.Size(100, 20);
+            this.ClaveClave.TabIndex = 11;
+            this.ClaveClave.Visible = false;
+            // 
+            // ClaveLabel
+            // 
+            this.ClaveLabel.AutoSize = true;
+            this.ClaveLabel.Location = new System.Drawing.Point(128, 269);
+            this.ClaveLabel.Name = "ClaveLabel";
+            this.ClaveLabel.Size = new System.Drawing.Size(110, 13);
+            this.ClaveLabel.TabIndex = 12;
+            this.ClaveLabel.Text = "Clave Algoritmo Clave";
+            this.ClaveLabel.Visible = false;
+            // 
+            // Proyecto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(362, 317);
+            this.Controls.Add(this.ClaveLabel);
+            this.Controls.Add(this.ClaveClave);
+            this.Controls.Add(this.claveVigenere);
+            this.Controls.Add(this.VigenereLabel);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.Boton);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.oracion);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.checkedListBox2);
-            this.Controls.Add(this.checkedListBox1);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Controls.Add(this.Modo);
+            this.Controls.Add(this.Archivos);
+            this.Controls.Add(this.Algoritmos);
+            this.Name = "Proyecto";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Proyecto";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -157,14 +205,18 @@
 
         #endregion
 
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
-        private System.Windows.Forms.CheckedListBox checkedListBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.CheckedListBox Algoritmos;
+        private System.Windows.Forms.CheckedListBox Archivos;
+        private System.Windows.Forms.ComboBox Modo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox oracion;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button Boton;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label VigenereLabel;
+        private System.Windows.Forms.TextBox claveVigenere;
+        private System.Windows.Forms.TextBox ClaveClave;
+        private System.Windows.Forms.Label ClaveLabel;
     }
 }

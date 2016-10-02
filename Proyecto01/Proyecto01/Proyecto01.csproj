@@ -48,6 +48,7 @@
     <Compile Include="AlgoritmoCesar.cs" />
     <Compile Include="AlgoritmoClave.cs" />
     <Compile Include="ControladorConsola.cs" />
+    <Compile Include="ControladorGui.cs" />
     <Compile Include="Excel.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
