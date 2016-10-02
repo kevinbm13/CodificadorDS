@@ -10,9 +10,10 @@ namespace Proyecto01
     {
         public Algoritmo crearAlgoritmo()
         {
-            Binario binario = new Binario();
+            // Algoritmo binario = new Binario();
 
-            return binario;
+            //  return binario;
+            return null;
         }
     }
 }

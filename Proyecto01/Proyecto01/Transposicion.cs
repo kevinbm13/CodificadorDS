@@ -8,30 +8,30 @@ namespace Proyecto01
 {
     class Transposicion : Algoritmo
     {
-        public override string codificar(string abecedario, string tiraEntrada, string tipoAlgoritmo)
+        public override void codificar(Dto dto)
         {
             String tiraSalida = "";
-            for (int x = tiraEntrada.Length - 1; x >= 0; x--)
+            for (int x = dto.TiraInicial.Length - 1; x >= 0; x--)
             {
-                tiraSalida += tiraEntrada[x];
+                tiraSalida += dto.TiraInicial[x];
             }
             
-            Console.WriteLine(tiraSalida);
-            return tiraSalida;
+           
+            dto.TiraFinal.Add(tiraSalida);
         }
 
-        public override string decodificar(string abecedario, string tiraEntrada, string tipoAlgoritmo)
+        public override void decodificar(Dto dto)
         {
             String tiraSalida = "";
-            for (int x = tiraEntrada.Length - 1; x >= 0; x--)
+            for (int x = dto.TiraInicial.Length - 1; x >= 0; x--)
             {
-                tiraSalida += tiraEntrada[x];
+                tiraSalida += dto.TiraInicial[x];
 
             }
 
-            Console.WriteLine(tiraSalida);
-            return tiraSalida;
+            dto.TiraFinal.Add(tiraSalida);
             
+
         }
     }
 }

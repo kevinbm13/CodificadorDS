@@ -10,7 +10,7 @@ namespace Proyecto01
     {
         public Algoritmo crearAlgoritmo()
         {
-            Vigenere vigenere = new Vigenere();
+           Algoritmo vigenere = new AlgoritmoCesar();
 
             return vigenere;
         }

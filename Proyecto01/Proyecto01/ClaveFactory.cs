@@ -10,7 +10,7 @@ namespace Proyecto01
     {
         public Algoritmo crearAlgoritmo()
         {
-            Clave clave = new Clave();
+            Algoritmo clave = new AlgoritmoClave();
 
             return clave;
         }

@@ -11,8 +11,8 @@ namespace Proyecto01
     {
 
    //VARIABLES
-        private int y = 0;
-        private int k = 0;
+        private int y = 0; //contador para la oracionactual
+        private int k = 0; //contador para la letraActual de la clave
         private String clave;
         private String tiraFinal;
         private String tiraInicial;
@@ -24,6 +24,7 @@ namespace Proyecto01
         public override void codificar(Dto dto)
         {
             abc = dto.Abecedario;
+          
             tiraInicial = dto.TiraInicial;    //Se asiganan los campos DTO a las variables
             clave = dto.Clave;
 
@@ -45,9 +46,9 @@ namespace Proyecto01
                         k = 0;
                     }
                     
-                        int index = Array.IndexOf(abecedario, oracionActual[i]);
+                        int index = Array.IndexOf(abecedario, oracionActual[i]);//la posicion de la letra de la oracion actual en abecedrio
                   
-                        int index2 = Array.IndexOf(abecedario, clave[k]);
+                        int index2 = Array.IndexOf(abecedario, clave[k]);// la posicion de la letra actual de la clave en abecedario
 
                     if (index + index2 > abecedario.Length && k < clave.Length)
                         {
@@ -63,10 +64,6 @@ namespace Proyecto01
                             k++;
                         }
                        
-
-                    
-                        
-
                     
                    
                 }
@@ -76,10 +73,13 @@ namespace Proyecto01
                 y++;
             
             }
-            dto.TiraFinal = tiraFinal;
-            Console.Write(tiraFinal);
+            dto.TiraFinal.Add(tiraFinal);
+            
+            
+
+
         }
-//-------------------------------------------------------------------------------------------------------------------
+        //-------------------------------------------------------------------------------------------------------------------
 
         public override void decodificar(Dto dto)
         {
@@ -136,7 +136,8 @@ namespace Proyecto01
                 y++;
 
             }
-            Console.Write(tiraFinal);
+            dto.TiraFinal.Add(tiraFinal);
+
         }
     }
 }
