@@ -21,6 +21,7 @@ namespace Proyecto01
             dto = new Dto();
             dto.TiraFinal = new List<string>();
             dto.Abecedario = "abcdefghijklmnopqrstuvwxyz";
+            dto.Clave = null;
         }
 //-------------------------------------------------------------------------------
 
@@ -50,7 +51,7 @@ namespace Proyecto01
 //------------------------------------------------------------------------------------------
         public void ejecutar(String algoritmoActual)
         {
-
+            oracionCorrecta(dto);
             algoritmoActivo = algoritmoActual;
             
            
@@ -75,6 +76,7 @@ namespace Proyecto01
 
                 if (algoritmoActivo == "Clave")
                 {
+                   
                     Ialgoritmo = new ClaveFactory();
                     algoritmo = Ialgoritmo.crearAlgoritmo();
                     algoritmo.decodificar(dto);
@@ -82,8 +84,8 @@ namespace Proyecto01
 
                 if (algoritmoActivo == "Vigenere")
                 {
-                   
 
+                    claveIncorrecta(dto);
                     Ialgoritmo = new VigenereFactory();
                     algoritmo = Ialgoritmo.crearAlgoritmo();
                     algoritmo.decodificar(dto);
@@ -122,7 +124,7 @@ namespace Proyecto01
 
         {
 
-          
+           
 
             int y = 0;
             
@@ -132,6 +134,7 @@ namespace Proyecto01
                 
                 if (algoritmoActivo == "Clave")
                 {
+                   
                     
                     Ialgoritmo = new ClaveFactory();
                     algoritmo = Ialgoritmo.crearAlgoritmo();
@@ -142,7 +145,10 @@ namespace Proyecto01
 
                 if (algoritmoActivo == "Vigenere")
                 {
-                   
+                    if (dto.Clave.Length != 2 )
+                    {
+                        claveIncorrecta(dto);
+                    }
                     Ialgoritmo = new VigenereFactory();
                     algoritmo = Ialgoritmo.crearAlgoritmo();
                  
@@ -178,8 +184,46 @@ namespace Proyecto01
             }
 
         }
-//--------------------------------------------------------------------------------
-//Cambiar para mostrar en pantalla
+ //--------------------------------------------------------------------------------
+        public void oracionCorrecta(Dto dto)
+        {
+            int y = 0;
+            String[] oraciones = dto.TiraInicial.Split(' ');
+            char[] abc = dto.Abecedario.ToCharArray();
+            String clave = dto.Clave;
+            while (y < oraciones.Length)
+            {
+                String oracionActual = oraciones[y];
+                
+
+                for (int i = 0; i < oracionActual.Length; i++)
+                {
+
+                    if (dto.Abecedario.Contains(oracionActual[i]) == false)
+                    {
+                        crearMensajedeErrorPalabra();
+                    }
+
+                    if (dto.Abecedario.Contains(clave[i]) == false)
+                    {
+                        crearMensajedeErrorClaveCaracter();
+                    }
+
+                }
+                y++;
+            }
+        }
+
+//-------------------------------------------------------------------------------
+        public void claveIncorrecta(Dto dto)
+        {
+            if (dto.Clave.Length != 2)
+            {
+                crearMensajedeErrorClave();
+            }
+        }
+ //--------------------------------------------------------------------------------
+        //Cambiar para mostrar en pantalla
         public void mostrarResultado(Dto dto)
         {
             DateTime d = DateTime.Now;
@@ -190,6 +234,28 @@ namespace Proyecto01
 
             cnt++;
             //Console.Write("Palabra original : {0}", dto.TiraInicial);
+        }
+//-----------------------------------------------------------------------------------------
+       public void crearMensajedeErrorPalabra()
+        {
+            
+            MessageBox.Show("Carácter no se encuenta en el diccionario");
+            Environment.Exit(0);
+        }
+//------------------------------------------------------------------------
+        public void crearMensajedeErrorClaveCaracter()
+        {
+
+            MessageBox.Show("Carácter invalido en la clave");
+            Environment.Exit(0);
+        }
+//-----------------------------------------------------------------------------------------
+
+        public void crearMensajedeErrorClave()
+        {
+
+            MessageBox.Show("Clave posee mas de 2 dígitos");
+            Environment.Exit(0);
         }
 
 

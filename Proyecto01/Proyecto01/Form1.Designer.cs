@@ -198,6 +198,7 @@
             this.Name = "Proyecto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Proyecto";
+            this.Load += new System.EventHandler(this.Proyecto_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -98,13 +98,18 @@ namespace Proyecto01
 
                 if (itemChecked.ToString() == "Clave")
                 {
-                    
+                    Console.Write(ClaveClave.Text);
                     cgui.obtenerClave(ClaveClave.Text);
                     
                 }
                 
                 cgui.ejecutar(itemChecked.ToString());
             }
+        }
+
+        private void Proyecto_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
