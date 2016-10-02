@@ -11,9 +11,10 @@ namespace Proyecto01
     {
         static void Main(string[] args)
         {
-
-            Application.EnableVisualStyles();
-            Application.Run(new Proyecto());
+            //Application.EnableVisualStyles();
+            //Application.Run(new Proyecto());
+            ControladorConsola c = new ControladorConsola();
+            c.ejecutar();
         }
     }
 }

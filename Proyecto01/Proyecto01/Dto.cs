@@ -7,7 +7,7 @@ namespace Proyecto01
     {
         string abecedario;
         string tiraInicial;
-        List<string> tiraFinal;
+        List<string> tiraFinal = new List<string>();
         string clave;
         string[] tipoAlgoritmo;
         string modo;

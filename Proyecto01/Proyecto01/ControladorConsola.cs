@@ -99,6 +99,7 @@ namespace Proyecto01
             //Console.WriteLine("Ingrese tipo de archivo");
             //texto = Console.ReadLine();
             //--------------------------------------------------------------------------------------------------------------
+            Console.ReadLine();
         }
 
 
