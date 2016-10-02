@@ -41,6 +41,7 @@ namespace Proyecto01
                 indice++;
             }
             archivo++;
+            file.Close();
         }
     }
 }

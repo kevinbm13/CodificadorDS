@@ -23,7 +23,7 @@ namespace Proyecto01
             tipoAlgoritmo = dto.TipoAlgoritmo;
             modo = dto.Modo;
 
-            String ruta = AppDomain.CurrentDomain.BaseDirectory + "/" + "archivoTXT";
+            String ruta = AppDomain.CurrentDomain.BaseDirectory + "archivoTXT";
             ruta = ruta + archivo + ".txt";
             System.IO.StreamWriter file = new System.IO.StreamWriter(ruta);
 
@@ -33,12 +33,13 @@ namespace Proyecto01
             foreach (String algoritmo in tipoAlgoritmo)
             {
                 file.WriteLine("");
-                file.WriteLine("Algoritmo: " + tipoAlgoritmo);
+                file.WriteLine("Algoritmo: " + algoritmo);
                 file.WriteLine("Modo: " + modo);
                 file.WriteLine("Salida: " + tiraFinal[indice]);
                 indice++;
             }
             archivo++;
+            file.Close();
         }
     }
 }

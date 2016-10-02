@@ -15,6 +15,9 @@ namespace Proyecto01
             //Application.Run(new Proyecto());
             ControladorConsola c = new ControladorConsola();
             c.ejecutar();
+
+
+
         }
     }
 }

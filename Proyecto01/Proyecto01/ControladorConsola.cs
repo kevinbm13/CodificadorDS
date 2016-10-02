@@ -12,6 +12,7 @@ namespace Proyecto01
         private Algoritmo algoritmo;
         private String texto;
         private String[] oraciones;
+        private String[] formatos;
         private int cnt = 0;
         private int y = 0;
         private Dto dto;
@@ -54,6 +55,15 @@ namespace Proyecto01
             dto.Clave = texto;
         }
 
+        public void obtenerArchivos()
+        {
+            Console.WriteLine("Ingrese el formato de archivo de salida que desea");
+            Console.WriteLine("Si desea utilizar mas de un formato separalo por espacios");
+            texto = Console.ReadLine();
+            formatos = texto.Split(' ');
+            dto.TipoArchivo = formatos;
+        }
+
         public void ejecutar()
         {
 
@@ -68,6 +78,9 @@ namespace Proyecto01
             //------------------------------------------------------------------------------------------------------------
             obtenerOracion();
 
+            //usuario ingresa los archivos de salida
+            //------------------------------------------------------------------------------------------------------------
+            obtenerArchivos();
 
             //Usuario elije la operacion
             //------------------------------------------------------------------------------------------------------------
@@ -90,6 +103,9 @@ namespace Proyecto01
                 decodificar(dto);
 
             }
+
+            ArchivoFinder buscadorTipoArchivo = new ArchivoFinder();
+            buscadorTipoArchivo.escritorFinder(dto);
 
 
 
