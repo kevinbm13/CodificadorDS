@@ -23,7 +23,7 @@ namespace Proyecto01
             texto = null;
             dto = new Dto();
             dto.TiraFinal = new List<string>();
-            dto.Abecedario = "abcdefghijklmnopqrstuvwxyz";
+
             dto.Clave = null;
         }
 //-------------------------------------------------------------------------------
@@ -70,7 +70,7 @@ namespace Proyecto01
         {
 
             algoritmoActivo = algoritmoActual;
-          
+            incializarAbecedario();
           
             
            
@@ -275,7 +275,13 @@ namespace Proyecto01
             MessageBox.Show("Clave posee mas de 2 dígitos");
             Environment.Exit(0);
         }
-
+        public void incializarAbecedario()
+        {
+            string text = System.IO.File.ReadAllText("C:\\Users\\gollo\\Desktop\\abecedario.txt");
+            Console.Write(text);
+            dto.Abecedario = text;
+        }
+        
 
 
     }

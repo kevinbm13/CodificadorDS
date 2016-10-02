@@ -20,7 +20,7 @@ namespace Proyecto01
         {
             dto = new Dto();
             dto.TiraFinal = new List<string>();  //Incializar...Esperando la lectura para cambiarlo e inicializar el dto por aparte
-            dto.Abecedario = "abcdefghijklmnopqrstuvwxyz";
+            
         }
 
         public void obtenerAlgoritmos()
@@ -239,8 +239,14 @@ namespace Proyecto01
             Console.Write("Caracter invalido");
             Environment.Exit(0);
         }
-
- //-----------------------------------------------------------------------------------------------------------
+        //--------------------------------------------------------------------
+        public void incializarAbecedario()
+        {
+            string text = System.IO.File.ReadAllText("C:\\Users\\gollo\\Desktop\\abecedario.txt");
+            Console.Write(text);
+            dto.Abecedario = text;
+        }
+        //-----------------------------------------------------------------------------------------------------------
         public void oracionCorrecta(String oracion)
         {
             int y = 0;
