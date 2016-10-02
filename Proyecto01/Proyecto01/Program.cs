@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Proyecto01
 {
@@ -10,9 +11,9 @@ namespace Proyecto01
     {
         static void Main(string[] args)
         {
-            ControladorConsola c = new ControladorConsola();
-            c.ejecutar();
-            
+            Application.EnableVisualStyles();
+            Application.Run(new Proyecto());
+
         }
     }
 }
