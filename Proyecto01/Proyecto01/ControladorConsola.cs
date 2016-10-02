@@ -126,7 +126,7 @@ namespace Proyecto01
 
 
         //----------------------------------------------------------------------------------------------------------------------
-
+        //--
         public void decodificar(Dto dto)
         {
             int y = 0;
@@ -137,6 +137,7 @@ namespace Proyecto01
 
                 if (oracionActual == "clave")
                 {
+
                     obtenerClave();
                     oracionCorrecta(dto.Clave);
 
