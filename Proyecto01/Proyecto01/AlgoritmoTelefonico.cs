@@ -123,7 +123,7 @@ namespace Proyecto01
             abecedario.Add('x', "92");
             abecedario.Add('y', "93");
             abecedario.Add('z', "94");
-
+            abecedario.Add(' ',"*");
 
         }
 

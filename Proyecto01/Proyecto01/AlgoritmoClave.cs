@@ -49,8 +49,8 @@ namespace Proyecto01
                         int index = Array.IndexOf(abecedario, oracionActual[i]);//la posicion de la letra de la oracion actual en abecedrio
                   
                         int index2 = Array.IndexOf(abecedario, clave[k]);// la posicion de la letra actual de la clave en abecedario
-
-                    if (index + index2 > abecedario.Length && k < clave.Length)
+                   
+                    if ((index + index2) >= abecedario.Length && k < clave.Length)
                         {
                             sb.Append(abecedario[(index + index2 - abecedario.Length)+1]);
                             tiraFinal = sb.ToString();
@@ -59,7 +59,8 @@ namespace Proyecto01
                         }
                         else 
                         {
-                            sb.Append(abecedario[(index + index2)+1]);
+                        
+                        sb.Append(abecedario[(index + index2)+1]);
                             tiraFinal = sb.ToString();
                             k++;
                         }

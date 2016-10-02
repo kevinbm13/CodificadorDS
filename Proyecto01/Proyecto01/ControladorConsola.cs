@@ -14,13 +14,19 @@ namespace Proyecto01
         private String[] oraciones;
         private int cnt = 0;
         private int y = 0;
+        private Dto dto;
+
+        public ControladorConsola()
+        {
+            Dto dto = new Dto();
+            dto.TiraFinal = new List<string>();  //Incializar...Esperando la lectura para cambiarlo e inicializar el dto por aparte
+            dto.Abecedario = "abcdefghijklmnopqrstuvwxyz";
+        }
 
         public void ejecutar()
         {
 
-            Dto dto = new Dto();
-            dto.TiraFinal = new List<string>();  //Incializar...Esperando la lectura para cambiarlo e inicializar el dto por aparte
-            dto.Abecedario = "abcdefghijklmnopqrstuvwxyz";
+           
 
             //Ingresa el algoritmo a utilizar
             //----------------------------------------------------------------------------------------------------------
@@ -35,7 +41,7 @@ namespace Proyecto01
             Console.WriteLine("Ingrese oración a utilizar");
             texto = Console.ReadLine();
             dto.TiraInicial = texto;
-            oracionCorrecta(dto);
+            oracionCorrecta(dto.TiraInicial);
 
 
             //Usuario elije la operacion
@@ -94,7 +100,9 @@ namespace Proyecto01
                 {
                     Console.WriteLine("Ingrese la clave");
                     texto = Console.ReadLine();
+                    oracionCorrecta(texto);
                     dto.Clave = texto;
+                   
 
                     Ialgoritmo = new ClaveFactory();
                     algoritmo = Ialgoritmo.crearAlgoritmo();
@@ -105,6 +113,7 @@ namespace Proyecto01
                 {
                     Console.WriteLine("Ingrese la clave");
                     texto = Console.ReadLine();
+                    oracionCorrecta(texto);
                     dto.Clave = texto;
 
                     Ialgoritmo = new VigenereFactory();
@@ -208,15 +217,21 @@ namespace Proyecto01
             Console.Write("Resultado : {0}", dto.TiraFinal[cnt] + Environment.NewLine+Environment.NewLine);
 
             cnt++;
-            //Console.Write("Palabra original : {0}", dto.TiraInicial);
+            
+        }
+//------------------------------------------------------------------------------------
+        public void crearMensajedeErrorPalabra()
+        {
+            Console.Write("Caracter invalido");
         }
 
-
-        //-----------------------------------------------------------------------------------------------------------
-        public void oracionCorrecta(Dto dto)
+ //-----------------------------------------------------------------------------------------------------------
+        public void oracionCorrecta(String oracion)
         {
-            String[] oraciones = dto.TiraInicial.Split(' ');
+            int y = 0;
+            String[] oraciones = oracion.Split(' ');
             char[] abc = dto.Abecedario.ToCharArray();
+
             while (y < oraciones.Length)
             {
                 String oracionActual = oraciones[y];
@@ -225,11 +240,11 @@ namespace Proyecto01
                 for (int i = 0; i < oracionActual.Length; i++)
                 {
 
-                    if (dto.Abecedario.Contains(oracionActual[i])==false)
+                    if (dto.Abecedario.Contains(oracionActual[i]) == false)
                     {
-                        Console.Write("Caracter inválido");
-                        Environment.Exit(0);
+                        crearMensajedeErrorPalabra();
                     }
+
 
                 }
                 y++;

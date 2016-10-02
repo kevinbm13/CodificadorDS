@@ -51,7 +51,7 @@ namespace Proyecto01
 //------------------------------------------------------------------------------------------
         public void ejecutar(String algoritmoActual)
         {
-            oracionCorrecta(dto);
+          
             algoritmoActivo = algoritmoActual;
             
            
@@ -76,20 +76,21 @@ namespace Proyecto01
 
                 if (algoritmoActivo == "Clave")
                 {
-                   
+                    oracionCorrecta(dto.TiraInicial);
+                    oracionCorrecta(dto.Clave);
                     Ialgoritmo = new ClaveFactory();
                     algoritmo = Ialgoritmo.crearAlgoritmo();
                     algoritmo.decodificar(dto);
+                    mostrarResultado(dto);
                 }
 
                 if (algoritmoActivo == "Vigenere")
                 {
-
+                    oracionCorrecta(dto.TiraInicial);
                     claveIncorrecta(dto);
                     Ialgoritmo = new VigenereFactory();
                     algoritmo = Ialgoritmo.crearAlgoritmo();
                     algoritmo.decodificar(dto);
-                    Console.Write("Datos del algoritmo Vigenere" + Environment.NewLine);
                     mostrarResultado(dto);
                 }
 
@@ -103,11 +104,11 @@ namespace Proyecto01
                 }
                 if (algoritmoActivo == "Transposición")
                 {
-
+                    oracionCorrecta(dto.TiraInicial);
                     Ialgoritmo = new TransposicionFactory();
                     algoritmo = Ialgoritmo.crearAlgoritmo();
                     algoritmo.decodificar(dto);
-                    Console.Write("Datos del algoritmo Transposicion" + Environment.NewLine);
+                 
                     mostrarResultado(dto);
                 }
 
@@ -134,38 +135,33 @@ namespace Proyecto01
                 
                 if (algoritmoActivo == "Clave")
                 {
-                   
-                    
+                    oracionCorrecta(dto.TiraInicial);
+                    oracionCorrecta(dto.Clave);
                     Ialgoritmo = new ClaveFactory();
                     algoritmo = Ialgoritmo.crearAlgoritmo();
                     algoritmo.codificar(dto);
-                    Console.Write("Datos del algoritmo de Clave" + Environment.NewLine);
                     mostrarResultado(dto);
                 }
 
                 if (algoritmoActivo == "Vigenere")
                 {
-                    if (dto.Clave.Length != 2 )
-                    {
-                        claveIncorrecta(dto);
-                    }
+                    oracionCorrecta(dto.TiraInicial);
+                    claveIncorrecta(dto);
+                    
                     Ialgoritmo = new VigenereFactory();
                     algoritmo = Ialgoritmo.crearAlgoritmo();
                  
                     algoritmo.codificar(dto);
-                    Console.Write("Datos del algoritmo Vigenere" + Environment.NewLine);
                     mostrarResultado(dto);
 
                 }
 
                 if (algoritmoActivo == "Transposición")
                 {
-
+                    oracionCorrecta(dto.TiraInicial);
                     Ialgoritmo = new TransposicionFactory();
                     algoritmo = Ialgoritmo.crearAlgoritmo();
                     algoritmo.codificar(dto);
-                   
-                    Console.Write("Datos del algoritmo Transposicion" + Environment.NewLine);
                     mostrarResultado(dto);
                 }
 
@@ -175,7 +171,6 @@ namespace Proyecto01
                     Ialgoritmo = new TelefonicoFactory();
                     algoritmo = Ialgoritmo.crearAlgoritmo();
                     algoritmo.codificar(dto);
-                    Console.Write("Datos del algoritmo Telefónico" + Environment.NewLine);
                     mostrarResultado(dto);
                 }
 
@@ -185,12 +180,12 @@ namespace Proyecto01
 
         }
  //--------------------------------------------------------------------------------
-        public void oracionCorrecta(Dto dto)
+        public void oracionCorrecta(String oracion)
         {
             int y = 0;
-            String[] oraciones = dto.TiraInicial.Split(' ');
+            String[] oraciones = oracion.Split(' ');
             char[] abc = dto.Abecedario.ToCharArray();
-            String clave = dto.Clave;
+            
             while (y < oraciones.Length)
             {
                 String oracionActual = oraciones[y];
@@ -204,14 +199,14 @@ namespace Proyecto01
                         crearMensajedeErrorPalabra();
                     }
 
-                    if (dto.Abecedario.Contains(clave[i]) == false)
-                    {
-                        crearMensajedeErrorClaveCaracter();
-                    }
 
                 }
                 y++;
             }
+        }
+ public void escrituraClaveCorrecta(Dto dto)
+        {
+
         }
 
 //-------------------------------------------------------------------------------
@@ -226,12 +221,16 @@ namespace Proyecto01
         //Cambiar para mostrar en pantalla
         public void mostrarResultado(Dto dto)
         {
+            
+            
             DateTime d = DateTime.Now;
-            Console.Write("Fecha de Solicitud : {0}", d + Environment.NewLine);
-            Console.Write("Modo : {0}", dto.Modo + Environment.NewLine);
-            Console.Write("Palabra original : {0}", dto.TiraInicial + Environment.NewLine);
-            Console.Write("Resultado : {0}", dto.TiraFinal[cnt] + Environment.NewLine + Environment.NewLine);
-
+            String algoritmo = "Resultado :" + algoritmoActivo+Environment.NewLine;
+            String fecha="Fecha de Solicitud :"+d+Environment.NewLine;
+            String modo="Modo :"+dto.Modo+Environment.NewLine;
+            String original="Palabra original :"+ dto.TiraInicial+Environment.NewLine;
+            String final="Resultado :"+dto.TiraFinal[cnt];
+            String resultado =algoritmo+ fecha + modo + original + final;
+            MessageBox.Show(resultado);
             cnt++;
             //Console.Write("Palabra original : {0}", dto.TiraInicial);
         }
