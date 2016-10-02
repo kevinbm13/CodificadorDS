@@ -91,12 +91,13 @@ namespace Proyecto01
                     mostrarResultado(dto);
                 }
 
-                if (algoritmoActivo == "Telefonico")
+                if (algoritmoActivo == "Telefónico")
                 {
 
                     Ialgoritmo = new TelefonicoFactory();
                     algoritmo = Ialgoritmo.crearAlgoritmo();
-                    algoritmo.codificar(dto);
+                    algoritmo.decodificar(dto);
+                    mostrarResultado(dto);
                 }
                 if (algoritmoActivo == "Transposición")
                 {
@@ -162,12 +163,14 @@ namespace Proyecto01
                     mostrarResultado(dto);
                 }
 
-                if (algoritmoActivo == "Telefonico")
+                if (algoritmoActivo == "Telefónico")
                 {
 
                     Ialgoritmo = new TelefonicoFactory();
                     algoritmo = Ialgoritmo.crearAlgoritmo();
                     algoritmo.codificar(dto);
+                    Console.Write("Datos del algoritmo Telefónico" + Environment.NewLine);
+                    mostrarResultado(dto);
                 }
 
 
