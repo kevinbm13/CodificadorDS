@@ -26,8 +26,8 @@ namespace Proyecto01
 
         public void obtenerAlgoritmos()
         {
-            Console.WriteLine("Ingrese el algoritmo a utilizar");
-            Console.WriteLine("Si desea utilizar mas de un algoritmo separalo por espacios");
+            Console.WriteLine("Ingrese el algoritmo a utilizar.");
+            Console.WriteLine("Si desea utilizar mas de un algoritmo separalo por espacios:");
             texto = Console.ReadLine();
             oraciones = texto.Split(' ');
             dto.TipoAlgoritmo = oraciones;
@@ -35,7 +35,7 @@ namespace Proyecto01
 
         public void obtenerOracion()
         {
-            Console.WriteLine("Ingrese oración a utilizar");
+            Console.WriteLine("Ingrese oración a utilizar:");
             texto = Console.ReadLine();
             dto.TiraInicial = texto;
             oracionCorrecta(dto.TiraInicial);
@@ -43,7 +43,7 @@ namespace Proyecto01
 
         public void obtenerModo()
         {
-            Console.WriteLine("Ingrese operación a realizar");
+            Console.WriteLine("Ingrese operación a realizar:");
             texto = Console.ReadLine();
             dto.Modo = texto;
         }
@@ -57,8 +57,8 @@ namespace Proyecto01
 
         public void obtenerArchivos()
         {
-            Console.WriteLine("Ingrese el formato de archivo de salida que desea");
-            Console.WriteLine("Si desea utilizar mas de un formato separalo por espacios");
+            Console.WriteLine("Ingrese el formato de archivo de salida que desea.");
+            Console.WriteLine("Si desea utilizar mas de un formato separalo por espacios:");
             texto = Console.ReadLine();
             formatos = texto.Split(' ');
             dto.TipoArchivo = formatos;
@@ -107,14 +107,6 @@ namespace Proyecto01
             ArchivoFinder buscadorTipoArchivo = new ArchivoFinder();
             buscadorTipoArchivo.escritorFinder(dto);
 
-
-
-            //-------------------------------------------------------------------------------------------------------------           
-
-            //Aqui iria la opción de archivo, pero no se como se implementa
-            //Console.WriteLine("Ingrese tipo de archivo");
-            //texto = Console.ReadLine();
-            //--------------------------------------------------------------------------------------------------------------
             Console.ReadLine();
         }
 
