@@ -45,42 +45,44 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AlgoritmoCesar.cs" />
-    <Compile Include="AlgoritmoClave.cs" />
-    <Compile Include="AlgoritmoTelefonico.cs" />
-    <Compile Include="ControladorConsola.cs" />
-    <Compile Include="ControladorGui.cs" />
-    <Compile Include="Excel.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="Model\Factory\AlgoritmoCesar.cs" />
+    <Compile Include="Model\Factory\AlgoritmoClave.cs" />
+    <Compile Include="Model\Factory\AlgoritmoTelefonico.cs" />
+    <Compile Include="Controller\ControladorConsola.cs" />
+    <Compile Include="Controller\ControladorGui.cs" />
+    <Compile Include="Model\Strategy\Excel.cs" />
+    <Compile Include="View\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
+    <Compile Include="View\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="IAlgoritmoFactory.cs" />
-    <Compile Include="Algoritmo.cs" />
-    <Compile Include="ArchivoFinder.cs" />
-    <Compile Include="BinarioFactory.cs" />
-    <Compile Include="ClaveFactory.cs" />
-    <Compile Include="Dto.cs" />
-    <Compile Include="IEscritorStrategy.cs" />
+    <Compile Include="Model\Factory\IAlgoritmoFactory.cs" />
+    <Compile Include="Model\Factory\Algoritmo.cs" />
+    <Compile Include="Model\Strategy\ArchivoFinder.cs" />
+    <Compile Include="Model\Factory\BinarioFactory.cs" />
+    <Compile Include="Model\Factory\ClaveFactory.cs" />
+    <Compile Include="Model\Dto.cs" />
+    <Compile Include="Model\Strategy\IEscritorStrategy.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TelefonicoFactory.cs" />
-    <Compile Include="Transposicion.cs" />
-    <Compile Include="TransposicionFactory.cs" />
-    <Compile Include="TXT.cs" />
-    <Compile Include="VigenereFactory.cs" />
-    <Compile Include="XML.cs" />
+    <Compile Include="Model\Factory\TelefonicoFactory.cs" />
+    <Compile Include="Model\Factory\Transposicion.cs" />
+    <Compile Include="Model\Factory\TransposicionFactory.cs" />
+    <Compile Include="Model\Strategy\TXT.cs" />
+    <Compile Include="Model\Factory\VigenereFactory.cs" />
+    <Compile Include="Model\Strategy\XML.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Form1.resx">
+    <EmbeddedResource Include="View\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
