@@ -9,12 +9,11 @@ namespace Proyecto01
 {
     class ArchivoFinder
     {
-        String[] tipoArchivo;
         IEnumerable<IEscritorStrategy> escritores;
 
         public void escritorFinder(Dto dto)
         {
-            tipoArchivo = dto.TipoArchivo;
+            String[] tipoArchivo = dto.TipoArchivo;
             escritores = GetEnumerableOfType<IEscritorStrategy>();
             foreach (IEscritorStrategy p in escritores)
             {
