@@ -9,18 +9,10 @@ namespace Proyecto01
 {
     class ArchivoFinder
     {
-        IEnumerable<IEscritorStrategy> escritores;
 
         public void escritorFinder(Dto dto)
         {
             String[] tipoArchivo = dto.TipoArchivo;
-            escritores = GetEnumerableOfType<IEscritorStrategy>();
-            foreach (IEscritorStrategy p in escritores)
-            {
-                Console.WriteLine(p.GetType().ToString() + " 1");
-            }
-                
-
             int y = 0;
 
             while (y < tipoArchivo.Length)
@@ -43,17 +35,6 @@ namespace Proyecto01
                 }
                 y++;
             }
-        }
-
-        public static IEnumerable<IEscritorStrategy> GetEnumerableOfType<IEscritorStrategy>(params object[] constructorArgs) where IEscritorStrategy : class
-        {
-            List<IEscritorStrategy> objects = new List<IEscritorStrategy>();
-            foreach (Type type in Assembly.GetAssembly(typeof(IEscritorStrategy)).GetTypes()
-            .Where(myType => myType.IsClass && !myType.IsAbstract && myType.IsSubclassOf(typeof(IEscritorStrategy))))
-            {
-                objects.Add((IEscritorStrategy)Activator.CreateInstance(type, constructorArgs));
-            }
-            return objects;
         }
     }
 }

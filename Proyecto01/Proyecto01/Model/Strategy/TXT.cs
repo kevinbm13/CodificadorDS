@@ -9,19 +9,14 @@ namespace Proyecto01
     class TXT : IEscritorStrategy
     {
         private static int archivo = 1;
-        private List<String> tiraFinal; 
-        private String tiraInicial;
-        private String abc;
-        private String[] tipoAlgoritmo;
-        private String modo;
 
         public void escribirArchivo(Dto dto)
         {
-            abc = dto.Abecedario;
-            tiraInicial = dto.TiraInicial;
-            tiraFinal = dto.TiraFinal;
-            tipoAlgoritmo = dto.TipoAlgoritmo;
-            modo = dto.Modo;
+            String abc = dto.Abecedario;
+            String tiraInicial = dto.TiraInicial;
+            List<String> tiraFinal = dto.TiraFinal;
+            String[] tipoAlgoritmo = dto.TipoAlgoritmo;
+            String modo = dto.Modo;
 
             String ruta = AppDomain.CurrentDomain.BaseDirectory + "archivoTXT";
             ruta = ruta + archivo + ".txt";
