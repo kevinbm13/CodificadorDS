@@ -69,6 +69,12 @@ namespace Proyecto01
         public void ejecutar(String algoritmoActual)
         {
 
+
+            Console.Write(dto.TipoAlgoritmo.Length);
+                foreach (String i in dto.TipoAlgoritmo) {
+                    Console.Write(i);
+            }
+
             algoritmoActivo = algoritmoActual;
             incializarAbecedario();
           
@@ -219,10 +225,7 @@ namespace Proyecto01
                 y++;
             }
         }
- public void escrituraClaveCorrecta(Dto dto)
-        {
-
-        }
+ 
 
 //-------------------------------------------------------------------------------
         public void claveIncorrecta(Dto dto)
@@ -243,7 +246,7 @@ namespace Proyecto01
             }
 
             DateTime d = DateTime.Now;
-            String algoritmo = "Resultado :" + algoritmoActivo+Environment.NewLine;
+            String algoritmo = "Algoritmo :" + algoritmoActivo+Environment.NewLine;
             String fecha="Fecha de Solicitud :"+d+Environment.NewLine;
             String modo="Modo :"+dto.Modo+Environment.NewLine;
             String original="Palabra original :"+ dto.TiraInicial+Environment.NewLine;
@@ -277,8 +280,8 @@ namespace Proyecto01
         }
         public void incializarAbecedario()
         {
-            string text = System.IO.File.ReadAllText("C:\\Users\\gollo\\Desktop\\abecedario.txt");
-            Console.Write(text);
+            String ruta = AppDomain.CurrentDomain.BaseDirectory + "abecedario.txt";
+            string text = System.IO.File.ReadAllText(ruta);
             dto.Abecedario = text;
         }
         

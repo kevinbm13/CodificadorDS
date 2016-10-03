@@ -28,7 +28,8 @@ namespace Proyecto01
         {
 
             String p = null;
-            
+           
+           
             foreach (String itemChecked in Algoritmos.CheckedItems)
             {
                 
@@ -48,7 +49,7 @@ namespace Proyecto01
 
 
                 }
-
+                
 
                  p = itemChecked.ToString()+" ";
                 
