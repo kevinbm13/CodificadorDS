@@ -24,7 +24,7 @@ namespace Proyecto01
             tipoAlgoritmo = dto.TipoAlgoritmo;
             modo = dto.Modo;
             
-            String ruta = AppDomain.CurrentDomain.BaseDirectory + "/" + "archivoXML";
+            String ruta = AppDomain.CurrentDomain.BaseDirectory + "archivoXML";
             ruta = ruta + archivo + ".xml";
             System.IO.StreamWriter file = new System.IO.StreamWriter(ruta);
 

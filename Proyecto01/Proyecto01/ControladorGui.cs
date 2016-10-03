@@ -16,27 +16,24 @@ namespace Proyecto01
         int cnt = 0;
         String algoritmoActivo;
         String texto;
+        String textoArch;
         String[] oraciones;
+        private String[] formatos;
 
         public ControladorGui()
         {
             texto = null;
             dto = new Dto();
             dto.TiraFinal = new List<string>();
-
             dto.Clave = null;
         }
 //-------------------------------------------------------------------------------
 
         public void obtenerAlgoritmos(String objeto)
         {
-
-            texto += objeto;
+            texto = objeto;
             algoritmos = texto.Split(' ');
             dto.TipoAlgoritmo = algoritmos;
-            
-           
-           
         }
  //------------------------------------------------------------------------------------
 
@@ -56,9 +53,19 @@ namespace Proyecto01
                 dto.TiraInicial = tiraInicial;
     
         }
- //-----------------------------------------------------------
 
-          public void estaVacio(String oracion)
+//-------------------------------------------------------------------
+        public void obtenerArchivos(String objeto)
+        {
+            textoArch = objeto;
+            formatos = textoArch.Split(' ');
+            dto.TipoArchivo = formatos;
+            //while()
+            //Console.WriteLine(formatos[0]);
+        }
+//-----------------------------------------------------------
+
+        public void estaVacio(String oracion)
         {
             if (oracion == null)
             {
@@ -83,8 +90,18 @@ namespace Proyecto01
             {
                 decodificar(dto);
             }
+
+            
         }
 
+
+//---------------------------------------------------------------------------------
+        public void archivar()
+        {
+            ArchivoFinder buscadorTipoArchivo = new ArchivoFinder();
+            buscadorTipoArchivo.escritorFinder(dto);
+        }
+        
 //---------------------------------------------------------------------------------
         public void decodificar(Dto dto)
         {
@@ -277,7 +294,8 @@ namespace Proyecto01
         }
         public void incializarAbecedario()
         {
-            string text = System.IO.File.ReadAllText("C:\\Users\\gollo\\Desktop\\abecedario.txt");
+            String ruta = AppDomain.CurrentDomain.BaseDirectory + "abecedario.txt";
+            string text = System.IO.File.ReadAllText(ruta);
             Console.Write(text);
             dto.Abecedario = text;
         }
