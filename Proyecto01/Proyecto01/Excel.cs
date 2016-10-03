@@ -24,7 +24,7 @@ namespace Proyecto01
             tipoAlgoritmo = dto.TipoAlgoritmo;
             modo = dto.Modo;
             
-            String ruta = AppDomain.CurrentDomain.BaseDirectory + "/" + "archivoExcel";
+            String ruta = AppDomain.CurrentDomain.BaseDirectory + "archivoExcel";
             ruta = ruta + archivo + ".csv";
             System.IO.StreamWriter file = new System.IO.StreamWriter(ruta);
 
