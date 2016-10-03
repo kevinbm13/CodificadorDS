@@ -21,7 +21,7 @@ namespace Proyecto01
         {
             dto = new Dto();
             dto.TiraFinal = new List<string>();  //Incializar...Esperando la lectura para cambiarlo e inicializar el dto por aparte
-            
+            incializarAbecedario();
         }
 
         public void obtenerAlgoritmos()
@@ -258,7 +258,8 @@ namespace Proyecto01
         //--------------------------------------------------------------------
         public void incializarAbecedario()
         {
-            string text = System.IO.File.ReadAllText("C:\\Users\\gollo\\Desktop\\abecedario.txt");
+            String ruta = AppDomain.CurrentDomain.BaseDirectory + "abecedario.txt";
+            string text = System.IO.File.ReadAllText(ruta);
             Console.Write(text);
             dto.Abecedario = text;
         }
