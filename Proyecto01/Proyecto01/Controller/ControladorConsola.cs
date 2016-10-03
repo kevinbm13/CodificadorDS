@@ -260,7 +260,6 @@ namespace Proyecto01
         {
             String ruta = AppDomain.CurrentDomain.BaseDirectory + "abecedario.txt";
             string text = System.IO.File.ReadAllText(ruta);
-            Console.Write(text);
             dto.Abecedario = text;
         }
         //-----------------------------------------------------------------------------------------------------------
