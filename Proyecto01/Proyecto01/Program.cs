@@ -13,7 +13,7 @@ namespace Proyecto01
         {
             Application.EnableVisualStyles();
             Application.Run(new Proyecto());
-           // ControladorConsola c = new ControladorConsola();
+            //ControladorConsola c = new ControladorConsola();
             //c.ejecutar();
 
 

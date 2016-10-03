@@ -26,44 +26,50 @@ namespace Proyecto01
 
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            String p = "";
 
-            String p = null;
-           
-           
-            foreach (String itemChecked in Algoritmos.CheckedItems)
+            foreach (String item in Algoritmos.CheckedItems)
             {
-                
-               
-                if (itemChecked.ToString() == "Vigenere")
+                if (item.ToString().Equals("Vigenere"))
                 {
                     claveVigenere.Visible = true;
                     VigenereLabel.Visible = true;
                     
-
                 }
 
-                if (itemChecked.ToString() == "Clave")
+                if (item.ToString().Equals("Clave"))
                 {
                     ClaveLabel.Visible = true;
                     ClaveClave.Visible = true;
-
-
                 }
-                
 
-                 p = itemChecked.ToString()+" ";
-                
-                
+                p = p + item.ToString()+" ";
 
             }
-            cgui.obtenerAlgoritmos(p);
+            if(p.Length > 0)
+            {
+                string sub = p.Substring(0, p.Length - 1);
+                cgui.obtenerAlgoritmos(sub);
+                Console.WriteLine(sub);
+            }
+            
 
         }
 
         private void checkedListBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
+            String arch= "";
+            foreach (String item in Archivos.CheckedItems)
+            {
+                arch = arch + item.ToString().ToLower() + " ";
 
-
+            }
+            if (arch.Length > 0)
+            {
+                string sub = arch.Substring(0, arch.Length - 1);
+                cgui.obtenerArchivos(sub);
+                Console.WriteLine(sub);
+            }
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -108,6 +114,10 @@ namespace Proyecto01
                 
                 cgui.ejecutar(itemChecked.ToString());
             }
+
+            cgui.archivar();
+
+
         }
 
         private void Proyecto_Load(object sender, EventArgs e)

@@ -60,6 +60,7 @@
             // 
             // Archivos
             // 
+            this.Archivos.CheckOnClick = true;
             this.Archivos.FormattingEnabled = true;
             this.Archivos.Items.AddRange(new object[] {
             "XML",
