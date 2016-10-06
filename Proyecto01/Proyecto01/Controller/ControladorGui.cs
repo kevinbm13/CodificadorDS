@@ -106,53 +106,27 @@ namespace Proyecto01
             ArchivoFinder buscadorTipoArchivo = new ArchivoFinder();
             buscadorTipoArchivo.escritorFinder(dto);
         }
-        
-//---------------------------------------------------------------------------------
+
+        //---------------------------------------------------------------------------------
         public void decodificar(Dto dto)
         {
-           
 
-                if (algoritmoActivo == "Clave")
+            IEnumerable<Algoritmo> s = GetEnumerableOfType<Algoritmo>();
+            arrayAlgoritmos = s.ToArray();
+
+            for (int i = 0; i < arrayAlgoritmos.Length; i++)
+            {
+
+                if (algoritmoActivo == arrayAlgoritmos[i].ToString())
                 {
-                    oracionCorrecta(dto.TiraInicial);
-                    oracionCorrecta(dto.Clave);
-                    Ialgoritmo = new ClaveFactory();
-                    algoritmo = Ialgoritmo.crearAlgoritmo();
-                    algoritmo.decodificar(dto);
+
+                    arrayAlgoritmos[i].decodificar(dto);
                     mostrarResultado(dto);
                 }
 
-                if (algoritmoActivo == "Vigenere")
-                {
-                    oracionCorrecta(dto.TiraInicial);
-                    claveIncorrecta(dto);
-                    Ialgoritmo = new VigenereFactory();
-                    algoritmo = Ialgoritmo.crearAlgoritmo();
-                    algoritmo.decodificar(dto);
-                    mostrarResultado(dto);
-                }
-
-                if (algoritmoActivo == "Telefónico")
-                {
-
-                    Ialgoritmo = new TelefonicoFactory();
-                    algoritmo = Ialgoritmo.crearAlgoritmo();
-                    algoritmo.decodificar(dto);
-                    mostrarResultado(dto);
-                }
-                if (algoritmoActivo == "Transposición")
-                {
-                    oracionCorrecta(dto.TiraInicial);
-                    Ialgoritmo = new TransposicionFactory();
-                    algoritmo = Ialgoritmo.crearAlgoritmo();
-                    algoritmo.decodificar(dto);
-                 
-                    mostrarResultado(dto);
-                }
-
-             
 
 
+            }
         }
 
 
