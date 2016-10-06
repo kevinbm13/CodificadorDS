@@ -10,6 +10,7 @@ namespace Proyecto01
     {
         public Algoritmo crearAlgoritmo()
         {
+            Console.Write("estoy dentro");
             Transposicion transposicion = new Transposicion();
 
             return transposicion;

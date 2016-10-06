@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -19,6 +20,8 @@ namespace Proyecto01
         String textoArch;
         String[] oraciones;
         private String[] formatos;
+        private Algoritmo[] arrayAlgoritmos;
+        private IAlgoritmoFactory[] arrayAlgoritmosFactory;
 
         public ControladorGui()
         {
@@ -26,6 +29,8 @@ namespace Proyecto01
             dto = new Dto();
             dto.TiraFinal = new List<string>();
             dto.Clave = null;
+           
+
         }
 //-------------------------------------------------------------------------------
 
@@ -150,58 +155,42 @@ namespace Proyecto01
 
         }
 
- //--------------------------------------------------------------------------------------------------------------------
+
+        //-------------------------------------------------------------------------------------------
+        public static IEnumerable<T> GetEnumerableOfType<T>(params object[] constructorArgs) where T : class
+        {
+            List<T> objects = new List<T>();
+            foreach (Type type in
+            Assembly.GetAssembly(typeof(T)).GetTypes()
+            .Where(myType => myType.IsClass && !myType.IsAbstract && myType.IsSubclassOf(typeof(T))))
+            {
+                objects.Add((T)Activator.CreateInstance(type, constructorArgs));
+            }
+            
+            return objects;
+        }
+
+
+        //--------------------------------------------------------------------------------------------------------------------
         public void codificar(Dto dto)
 
         {
-
+            IEnumerable<Algoritmo> s = GetEnumerableOfType<Algoritmo>();
+            arrayAlgoritmos = s.ToArray();
            
-
-           
-
-                if (algoritmoActivo == "Clave")
+            for (int i=0; i < arrayAlgoritmos.Length; i++)
+            {
+              
+                if (algoritmoActivo == arrayAlgoritmos[i].ToString())
                 {
-                   
-                    oracionCorrecta(dto.TiraInicial);
-                    oracionCorrecta(dto.Clave);
-                    Ialgoritmo = new ClaveFactory();
-                    algoritmo = Ialgoritmo.crearAlgoritmo();
-                    algoritmo.codificar(dto);
+
+                    arrayAlgoritmos[i].codificar(dto);
                     mostrarResultado(dto);
                 }
+            }
 
-                if (algoritmoActivo == "Vigenere")
-                {
-                    oracionCorrecta(dto.TiraInicial);
-                    claveIncorrecta(dto);
-                    
-                    Ialgoritmo = new VigenereFactory();
-                    algoritmo = Ialgoritmo.crearAlgoritmo();
-                 
-                    algoritmo.codificar(dto);
-                    mostrarResultado(dto);
-
-                }
-
-                if (algoritmoActivo == "Transposición")
-                {
+          
                
-                oracionCorrecta(dto.TiraInicial);
-                    Ialgoritmo = new TransposicionFactory();
-                    algoritmo = Ialgoritmo.crearAlgoritmo();
-                 
-                    algoritmo.codificar(dto);
-                    mostrarResultado(dto);
-                }
-
-                if (algoritmoActivo == "Telefónico")
-                {
-
-                    Ialgoritmo = new TelefonicoFactory();
-                    algoritmo = Ialgoritmo.crearAlgoritmo();
-                    algoritmo.codificar(dto);
-                    mostrarResultado(dto);
-                }
 
 
              
@@ -283,6 +272,22 @@ namespace Proyecto01
 
             MessageBox.Show("Carácter invalido en la clave");
             Environment.Exit(0);
+        }
+
+//-----------------------------------------------------------------------------------
+        public List<String> agregarOpciones()
+        {
+            List<String> nombre = new List<string>();
+            IEnumerable<Algoritmo> s = GetEnumerableOfType<Algoritmo>();
+            arrayAlgoritmos = s.ToArray();
+           
+            foreach (Algoritmo m in arrayAlgoritmos)
+            {
+              
+                Console.Write(m.ToString());
+                nombre.Add(m.ToString());
+            }
+            return nombre;
         }
 //-----------------------------------------------------------------------------------------
 

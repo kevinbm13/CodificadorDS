@@ -13,12 +13,23 @@ namespace Proyecto01
     public partial class Proyecto : Form
     {
         ControladorGui cgui;
+        List<String> nombres;
         public Proyecto()
         {
             InitializeComponent();
             cgui = new Proyecto01.ControladorGui();
+            nombres= cgui.agregarOpciones();
+            rellenarCheckBox();
+            
         }
 
+        private void rellenarCheckBox()
+        {
+            for(int i = 0; i < nombres.Count; i++)
+            {
+                Algoritmos.Items.Add(nombres[i]);
+            }
+        }
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -30,14 +41,14 @@ namespace Proyecto01
 
             foreach (String item in Algoritmos.CheckedItems)
             {
-                if (item.ToString().Equals("Vigenere"))
+                if (item.ToString().Equals("Proyecto01.AlgoritmoCesar"))
                 {
                     claveVigenere.Visible = true;
                     VigenereLabel.Visible = true;
                     
                 }
 
-                if (item.ToString().Equals("Clave"))
+                if (item.ToString().Equals("Proyecto01.AlgoritmoClave"))
                 {
                     ClaveLabel.Visible = true;
                     ClaveClave.Visible = true;
@@ -98,14 +109,14 @@ namespace Proyecto01
             foreach (String itemChecked in Algoritmos.CheckedItems)
             {
                 
-                if (itemChecked.ToString() == "Vigenere")
+                if (itemChecked.ToString() == "Proyecto01.AlgoritmoCesar")
                 {
                     
                     cgui.obtenerClave(claveVigenere.Text);
                     
                 }
 
-                if (itemChecked.ToString() == "Clave")
+                if (itemChecked.ToString() == "Proyecto01.AlgoritmoClave")
                 {
                     
                     cgui.obtenerClave(ClaveClave.Text);

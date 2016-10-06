@@ -45,7 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\Factory\AlgoritmoCesar.cs" />
+    <Compile Include="Model\Factory\AlgoritmoVigenere.cs" />
     <Compile Include="Model\Factory\AlgoritmoClave.cs" />
     <Compile Include="Model\Factory\AlgoritmoTelefonico.cs" />
     <Compile Include="Controller\ControladorConsola.cs" />
