@@ -11,12 +11,12 @@ namespace Proyecto01
         Binaria algBinario = new Binaria();
         public override void codificar(Dto dto)
         {
-            algBinario.codificar
+            dto.TiraFinal.Add(algBinario.codificar(dto.TiraInicial,dto.Abecedario));
         }
 
         public override void decodificar(Dto dto)
         {
-            throw new NotImplementedException();
+            dto.TiraFinal.Add(algBinario.codificar(dto.TiraInicial, dto.Abecedario));
         }
     }
 }
