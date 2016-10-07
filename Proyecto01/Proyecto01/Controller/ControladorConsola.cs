@@ -38,6 +38,7 @@ namespace Proyecto01
             Console.WriteLine("Ingrese oración a utilizar:");
             texto = Console.ReadLine();
             dto.TiraInicial = texto;
+            Console.Write(dto.TiraInicial);
             oracionCorrecta(dto.TiraInicial);
         }
 
@@ -67,7 +68,7 @@ namespace Proyecto01
         public void ejecutar()
         {
 
-
+            incializarAbecedario();
 
             //Ingresa el algoritmo a utilizar
             //----------------------------------------------------------------------------------------------------------
@@ -118,7 +119,7 @@ namespace Proyecto01
 
 
         //----------------------------------------------------------------------------------------------------------------------
-
+        //--
         public void decodificar(Dto dto)
         {
             int y = 0;
@@ -129,6 +130,7 @@ namespace Proyecto01
 
                 if (oracionActual == "clave")
                 {
+
                     obtenerClave();
                     oracionCorrecta(dto.Clave);
 
@@ -257,6 +259,7 @@ namespace Proyecto01
         //-----------------------------------------------------------------------------------------------------------
         public void oracionCorrecta(String oracion)
         {
+            
             int y = 0;
             String[] oraciones = oracion.Split(' ');
             char[] abc = dto.Abecedario.ToCharArray();

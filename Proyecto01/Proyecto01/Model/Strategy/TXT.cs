@@ -27,6 +27,7 @@ namespace Proyecto01
             file.WriteLine("Abecedario: " + abc);
             foreach (String algoritmo in tipoAlgoritmo)
             {
+                
                 file.WriteLine("");
                 file.WriteLine("Algoritmo: " + algoritmo);
                 file.WriteLine("Modo: " + modo);

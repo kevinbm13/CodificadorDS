@@ -47,14 +47,9 @@
             // 
             this.Algoritmos.CheckOnClick = true;
             this.Algoritmos.FormattingEnabled = true;
-            this.Algoritmos.Items.AddRange(new object[] {
-            "Clave",
-            "Vigenere",
-            "Transposición",
-            "Telefónico"});
             this.Algoritmos.Location = new System.Drawing.Point(12, 175);
             this.Algoritmos.Name = "Algoritmos";
-            this.Algoritmos.Size = new System.Drawing.Size(96, 64);
+            this.Algoritmos.Size = new System.Drawing.Size(211, 64);
             this.Algoritmos.TabIndex = 0;
             this.Algoritmos.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
             // 
@@ -66,7 +61,7 @@
             "XML",
             "TXT",
             "EXCEL"});
-            this.Archivos.Location = new System.Drawing.Point(135, 175);
+            this.Archivos.Location = new System.Drawing.Point(266, 175);
             this.Archivos.Name = "Archivos";
             this.Archivos.Size = new System.Drawing.Size(96, 64);
             this.Archivos.TabIndex = 1;
@@ -78,7 +73,7 @@
             this.Modo.Items.AddRange(new object[] {
             "Codificar",
             "Decodificar"});
-            this.Modo.Location = new System.Drawing.Point(237, 196);
+            this.Modo.Location = new System.Drawing.Point(389, 218);
             this.Modo.Name = "Modo";
             this.Modo.Size = new System.Drawing.Size(96, 21);
             this.Modo.TabIndex = 2;
@@ -87,7 +82,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(35, 150);
+            this.label1.Location = new System.Drawing.Point(172, 159);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(50, 13);
             this.label1.TabIndex = 3;
@@ -97,7 +92,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(161, 150);
+            this.label2.Location = new System.Drawing.Point(319, 159);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(43, 13);
             this.label2.TabIndex = 4;
@@ -123,7 +118,7 @@
             // 
             // Boton
             // 
-            this.Boton.Location = new System.Drawing.Point(258, 282);
+            this.Boton.Location = new System.Drawing.Point(421, 282);
             this.Boton.Name = "Boton";
             this.Boton.Size = new System.Drawing.Size(75, 23);
             this.Boton.TabIndex = 7;
@@ -145,7 +140,7 @@
             // VigenereLabel
             // 
             this.VigenereLabel.AutoSize = true;
-            this.VigenereLabel.Location = new System.Drawing.Point(15, 269);
+            this.VigenereLabel.Location = new System.Drawing.Point(144, 266);
             this.VigenereLabel.Name = "VigenereLabel";
             this.VigenereLabel.Size = new System.Drawing.Size(79, 13);
             this.VigenereLabel.TabIndex = 9;
@@ -154,7 +149,7 @@
             // 
             // claveVigenere
             // 
-            this.claveVigenere.Location = new System.Drawing.Point(8, 285);
+            this.claveVigenere.Location = new System.Drawing.Point(123, 282);
             this.claveVigenere.Name = "claveVigenere";
             this.claveVigenere.Size = new System.Drawing.Size(100, 20);
             this.claveVigenere.TabIndex = 10;
@@ -162,7 +157,7 @@
             // 
             // ClaveClave
             // 
-            this.ClaveClave.Location = new System.Drawing.Point(131, 285);
+            this.ClaveClave.Location = new System.Drawing.Point(262, 282);
             this.ClaveClave.Name = "ClaveClave";
             this.ClaveClave.Size = new System.Drawing.Size(100, 20);
             this.ClaveClave.TabIndex = 11;
@@ -171,7 +166,7 @@
             // ClaveLabel
             // 
             this.ClaveLabel.AutoSize = true;
-            this.ClaveLabel.Location = new System.Drawing.Point(128, 269);
+            this.ClaveLabel.Location = new System.Drawing.Point(252, 266);
             this.ClaveLabel.Name = "ClaveLabel";
             this.ClaveLabel.Size = new System.Drawing.Size(110, 13);
             this.ClaveLabel.TabIndex = 12;
@@ -182,7 +177,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(362, 317);
+            this.ClientSize = new System.Drawing.Size(519, 317);
             this.Controls.Add(this.ClaveLabel);
             this.Controls.Add(this.ClaveClave);
             this.Controls.Add(this.claveVigenere);
