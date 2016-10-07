@@ -50,6 +50,8 @@
     <Compile Include="Model\Factory\AlgoritmoTelefonico.cs" />
     <Compile Include="Controller\ControladorConsola.cs" />
     <Compile Include="Controller\ControladorGui.cs" />
+    <Compile Include="Model\Factory\Binaria.cs" />
+    <Compile Include="Model\Factory\BinarioAdapter.cs" />
     <Compile Include="Model\Strategy\Excel.cs" />
     <Compile Include="View\Form1.cs">
       <SubType>Form</SubType>
