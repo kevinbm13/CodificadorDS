@@ -66,7 +66,7 @@ namespace Proyecto01
         }
 
         /*Retorna el nombre de la clase.*/
-        public override string toString()
+        public string toString()
         {
             return "Binaria";
         }

@@ -9,14 +9,18 @@ namespace Proyecto01
     class BinarioAdapter : Algoritmo
     {
         Binaria algBinario = new Binaria();
+       
+
         public override void codificar(Dto dto)
         {
-            dto.TiraFinal.Add(algBinario.codificar(dto.TiraInicial,dto.Abecedario));
+            Alfabeto alf = new Alfabeto(dto.Abecedario);
+            dto.TiraFinal.Add(algBinario.codificar(dto.TiraInicial,alf));
         }
 
         public override void decodificar(Dto dto)
         {
-            dto.TiraFinal.Add(algBinario.codificar(dto.TiraInicial, dto.Abecedario));
+            Alfabeto alf = new Alfabeto(dto.Abecedario);
+            dto.TiraFinal.Add(algBinario.codificar(dto.TiraInicial, alf));
         }
     }
 }
